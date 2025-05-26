@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="execises.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>Registro de Treinos</title>
+    <title>FitLog</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Registro de Treinos</a>
+            <a class="navbar-brand" href="index.html">FitLog</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -21,7 +21,7 @@
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="exercises.html">Exercícios</a>
+                        <a class="nav-link" aria-current="page" href="exercises.html">Exercícios</a>
                     </li>
                 </ul>
             </div>
@@ -29,7 +29,7 @@
     </nav>
 
     <div class="container my-5">
-        <h1 class="text-center mb-4 exercises__header">Registro de Treinos</h1>
+        <h1 class="text-center mb-4">Registro de Treinos</h1>
         <ul class="nav nav-tabs" id="exerciseTabs" role="tablist">
             <li class="nav-item" role="presentation">
                 <a class="nav-link active" id="monday-tab" data-bs-toggle="tab" href="#monday" role="tab" aria-controls="monday" aria-selected="true">Segunda</a>
@@ -48,183 +48,182 @@
             </li>
         </ul>
         
-        <div class="tab-content" id="exerciseTabsContent">
+        <div class="tab-content mt-3" id="exerciseTabsContent">
             <div class="tab-pane fade show active" id="monday" role="tabpanel" aria-labelledby="monday-tab">
-                <h2 class="mt-4">Exercícios - Segunda</h2>
                 <div class="card mb-3">
-                    <div class="card-header">
+                    <div class="card-header" data-bs-toggle="collapse" data-bs-target="#collapseSupino" aria-expanded="false" aria-controls="collapseSupino">
                         <h3 class="mb-0">Supino</h3>
-                        <img src="https://via.placeholder.com/300x200/007bff/ffffff?text=Supino" alt="Exemplo de Supino" class="img-fluid" style="max-height: 200px;">
+                        <i class="fas fa-angle-down"></i>
                     </div>
-                    <div class="card-body">
-                        <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseSupino" aria-expanded="false" aria-controls="collapseSupino">
-                            Mostrar Detalhes
-                        </button>
-                        <div class="collapse" id="collapseSupino">
-                            <p class="exercise__description">Este exercício fortalece o peito, tríceps e ombros.</p>
-                            <p class="exercise__series"><i class="fas fa-check-circle"></i> Série: 3x10</p>
+                    <div class="collapse" id="collapseSupino">
+                        <div class="card-body row">
+                            <img src="https://placehold.co/300x200" alt="Exemplo de Supino" class="img-fluid col">
+                            <p class="exercise__description col">Este exercício fortalece o peito, tríceps e ombros.</p>
+                            <div class="row">
+                                <div class="exercise__series"><i class="fas fa-check-circle"></i> Série: 3x10</div>
+                            </div>                            
                         </div>
                     </div>
                 </div>
                 <div class="card mb-3">
-                    <div class="card-header">
+                    <div class="card-header" data-bs-toggle="collapse" data-bs-target="#collapseAgachamento" aria-expanded="false" aria-controls="collapseAgachamento">
                         <h3 class="mb-0">Agachamento</h3>
-                        <img src="https://via.placeholder.com/300x200/007bff/ffffff?text=Agachamento" alt="Exemplo de Agachamento" class="img-fluid" style="max-height: 200px;">
+                        <i class="fas fa-angle-down"></i>
                     </div>
-                    <div class="card-body">
-                        <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseAgachamento" aria-expanded="false" aria-controls="collapseAgachamento">
-                            Mostrar Detalhes
-                        </button>
-                        <div class="collapse" id="collapseAgachamento">
-                            <p class="exercise__description">O agachamento é fundamental para fortalecer as pernas e glúteos.</p>
-                            <p class="exercise__series"><i class="fas fa-check-circle"></i> Série: 3x12</p>
+                    <div class="collapse" id="collapseAgachamento">
+                        <div class="card-body row">
+                            <img src="https://placehold.co/300x200" alt="Exemplo de Agachamento" class="img-fluid col">
+                            <p class="exercise__description col">O agachamento é fundamental para fortalecer as pernas e glúteos.</p>
+                            <div class="row">
+                                <div class="exercise__series"><i class="fas fa-check-circle"></i> Série: 3x10</div>
+                            </div> 
                         </div>
                     </div>
                 </div>
                 <div class="card mb-3">
-                    <div class="card-header">
+                    <div class="card-header" data-bs-toggle="collapse" data-bs-target="#collapseRemada" aria-expanded="false" aria-controls="collapseRemada">
                         <h3 class="mb-0">Remada</h3>
-                        <img src="https://via.placeholder.com/300x200/007bff/ffffff?text=Remada" alt="Exemplo de Remada" class="img-fluid" style="max-height: 200px;">
+                        <i class="fas fa-angle-down"></i>
                     </div>
-                    <div class="card-body">
-                        <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseRemada" aria-expanded="false" aria-controls="collapseRemada">
-                            Mostrar Detalhes
-                        </button>
-                        <div class="collapse" id="collapseRemada">
-                            <p class="exercise__description">A remada trabalha as costas e melhora a postura.</p>
-                            <p class="exercise__series"><i class="fas fa-check-circle"></i> Série: 3x10</p>
+                    <div class="collapse" id="collapseRemada">
+                        <div class="card-body row">
+                            <img src="https://placehold.co/300x200" alt="Exemplo de Remada" class="img-fluid col">
+                            <p class="exercise__description col">A remada trabalha as costas e melhora a postura.</p>
+                            <div class="row">
+                                <div class="exercise__series"><i class="fas fa-check-circle"></i> Série: 3x10</div>
+                            </div> 
                         </div>
                     </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="tuesday" role="tabpanel" aria-labelledby="tuesday-tab">
-                <h2 class="mt-4">Exercícios - Terça</h2>
+                <h2 class="mt-4">Exercícios</h2>
                 <div class="card mb-3">
-                    <div class="card-header">
+                    <div class="card-header" data-bs-toggle="collapse" data-bs-target="#collapseCorrer" aria-expanded="false" aria-controls="collapseCorrer">
                         <h3 class="mb-0">Correr</h3>
-                        <img src="https://via.placeholder.com/300x200/007bff/ffffff?text=Correr" alt="Exemplo de Correr" class="img-fluid" style="max-height: 200px;">
+                        <i class="fas fa-angle-down"></i>
                     </div>
-                    <div class="card-body">
-                        <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseCorrer" aria-expanded="false" aria-controls="collapseCorrer">
-                            Mostrar Detalhes
-                        </button>
-                        <div class="collapse" id="collapseCorrer">
-                            <p class="exercise__description">Correr melhora a resistência cardiovascular.</p>
-                            <p class="exercise__series"><i class="fas fa-check-circle"></i> Duração: 30 min</p>
+                    <div class="collapse" id="collapseCorrer">
+                        <div class="card-body row">
+                            <img src="https://placehold.co/300x200" alt="Exemplo de Correr" class="img-fluid col">
+                            <p class="exercise__description col">Correr melhora a resistência cardiovascular.</p>
+                            <div class="row">
+                                <div class="exercise__series"><i class="fas fa-check-circle"></i> Série: 3x10</div>
+                            </div> 
                         </div>
                     </div>
                 </div>
                 <div class="card mb-3">
-                    <div class="card-header">
+                    <div class="card-header" data-bs-toggle="collapse" data-bs-target="#collapseBicicleta" aria-expanded="false" aria-controls="collapseBicicleta">
                         <h3 class="mb-0">Bicicleta</h3>
-                        <img src="https://via.placeholder.com/300x200/007bff/ffffff?text=Bicicleta" alt="Exemplo de Bicicleta" class="img-fluid" style="max-height: 200px;">
+                        <i class="fas fa-angle-down"></i>
                     </div>
-                    <div class="card-body">
-                        <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseBicicleta" aria-expanded="false" aria-controls="collapseBicicleta">
-                            Mostrar Detalhes
-                        </button>
-                        <div class="collapse" id="collapseBicicleta">
-                            <p class="exercise__description">Pedalar é excelente para fortalecer as pernas e queimar calorias.</p>
-                            <p class="exercise__series"><i class="fas fa-check-circle"></i> Duração: 30 min</p>
+                    <div class="collapse" id="collapseBicicleta">
+                        <div class="card-body row">
+                            <img src="https://placehold.co/300x200" alt="Exemplo de Bicicleta" class="img-fluid col">
+                            <p class="exercise__description col">Pedalar é excelente para fortalecer as pernas e queimar calorias.</p>
+                            <div class="row">
+                                <div class="exercise__series"><i class="fas fa-check-circle"></i> Série: 3x10</div>
+                            </div> 
                         </div>
                     </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="wednesday" role="tabpanel" aria-labelledby="wednesday-tab">
-                <h2 class="mt-4">Exercícios - Quarta</h2>
+                <h2 class="mt-4">Exercícios</h2>
                 <div class="card mb-3">
-                    <div class="card-header">
+                    <div class="card-header" data-bs-toggle="collapse" data-bs-target="#collapseLevantamento" aria-expanded="false" aria-controls="collapseLevantamento">
                         <h3 class="mb-0">Levantamento Terra</h3>
-                        <img src="https://via.placeholder.com/300x200/007bff/ffffff?text=Levantamento+Terra" alt="Exemplo de Levantamento Terra" class="img-fluid" style="max-height: 200px;">
+                        <i class="fas fa-angle-down"></i>
                     </div>
-                    <div class="card-body">
-                        <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseLevantamento" aria-expanded="false" aria-controls="collapseLevantamento">
-                            Mostrar Detalhes
-                        </button>
-                        <div class="collapse" id="collapseLevantamento">
-                            <p class="exercise__description">Este exercício é ótimo para as costas e posterior da coxa.</p>
-                            <p class="exercise__series"><i class="fas fa-check-circle"></i> Série: 3x8</p>
+                    <div class="collapse" id="collapseLevantamento">
+                        <div class="card-body row">
+                            <img src="https://placehold.co/300x200" alt="Exemplo de Levantamento Terra" class="img-fluid col">
+                            <p class="exercise__description col">Este exercício é ótimo para as costas e posterior da coxa.</p>
+                            <div class="row">
+                                <div class="exercise__series"><i class="fas fa-check-circle"></i> Série: 3x10</div>
+                            </div> 
                         </div>
                     </div>
                 </div>
                 <div class="card mb-3">
-                    <div class="card-header">
+                    <div class="card-header" data-bs-toggle="collapse" data-bs-target="#collapsePuxada" aria-expanded="false" aria-controls="collapsePuxada">
                         <h3 class="mb-0">Puxada</h3>
-                        <img src="https://via.placeholder.com/300x200/007bff/ffffff?text=Puxada" alt="Exemplo de Puxada" class="img-fluid" style="max-height: 200px;">
+                        <i class="fas fa-angle-down"></i>
                     </div>
-                    <div class="card-body">
-                        <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapsePuxada" aria-expanded="false" aria-controls="collapsePuxada">
-                            Mostrar Detalhes
-                        </button>
-                        <div class="collapse" id="collapsePuxada">
-                            <p class="exercise__description">A puxada é essencial para desenvolver a musculatura das costas.</p>
-                            <p class="exercise__series"><i class="fas fa-check-circle"></i> Série: 3x10</p>
+                    <div class="collapse" id="collapsePuxada">
+                        <div class="card-body row">
+                            <img src="https://placehold.co/300x200" alt="Exemplo de Puxada" class="img-fluid col">
+                            <p class="exercise__description col">A puxada é essencial para desenvolver a musculatura das costas.</p>
+                            <div class="row">
+                                <div class="exercise__series"><i class="fas fa-check-circle"></i> Série: 3x10</div>
+                            </div> 
                         </div>
                     </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="thursday" role="tabpanel" aria-labelledby="thursday-tab">
-                <h2 class="mt-4">Exercícios - Quinta</h2>
+                <h2 class="mt-4">Exercícios</h2>
                 <div class="card mb-3">
-                    <div class="card-header">
+                    <div class="card-header" data-bs-toggle="collapse" data-bs-target="#collapseFlexao" aria-expanded="false" aria-controls="collapseFlexao">
                         <h3 class="mb-0">Flexão</h3>
-                        <img src="https://via.placeholder.com/300x200/007bff/ffffff?text=Flexão" alt="Exemplo de Flexão" class="img-fluid" style="max-height: 200px;">
+                        <i class="fas fa-angle-down"></i>
                     </div>
-                    <div class="card-body">
-                        <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseFlexao" aria-expanded="false" aria-controls="collapseFlexao">
-                            Mostrar Detalhes
-                        </button>
-                        <div class="collapse" id="collapseFlexao">
-                            <p class="exercise__description">As flexões fortalecem o peito, ombros e tríceps.</p>
-                            <p class="exercise__series"><i class="fas fa-check-circle"></i> Série: 3x10</p>
+                    <div class="collapse" id="collapseFlexao">
+                        <div class="card-body row">
+                            <img src="https://placehold.co/300x200" alt="Exemplo de Flexão" class="img-fluid col">
+                            <p class="exercise__description col">As flexões fortalecem o peito, ombros e tríceps.</p>
+                            <div class="row">
+                                <div class="exercise__series"><i class="fas fa-check-circle"></i> Série: 3x10</div>
+                            </div> 
                         </div>
                     </div>
                 </div>
                 <div class="card mb-3">
-                    <div class="card-header">
+                    <div class="card-header" data-bs-toggle="collapse" data-bs-target="#collapseAbdominal" aria-expanded="false" aria-controls="collapseAbdominal">
                         <h3 class="mb-0">Abdominal</h3>
-                        <img src="https://via.placeholder.com/300x200/007bff/ffffff?text=Abdominal" alt="Exemplo de Abdominal" class="img-fluid" style="max-height: 200px;">
+                        <i class="fas fa-angle-down"></i>
                     </div>
-                    <div class="card-body">
-                        <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseAbdominal" aria-expanded="false" aria-controls="collapseAbdominal">
-                            Mostrar Detalhes
-                        </button>
-                        <div class="collapse" id="collapseAbdominal">
-                            <p class="exercise__description">Os abdominais fortalecem o core e melhoram a postura.</p>
-                            <p class="exercise__series"><i class="fas fa-check-circle"></i> Série: 3x15</p>
+                    <div class="collapse" id="collapseAbdominal">
+                        <div class="card-body row">
+                            <img src="https://placehold.co/300x200" alt="Exemplo de Abdominal" class="img-fluid col">
+                            <p class="exercise__description col">Os abdominais fortalecem o core e melhoram a postura.</p>
+                            <div class="row">
+                                <div class="exercise__series"><i class="fas fa-check-circle"></i> Série: 3x10</div>
+                            </div> 
                         </div>
                     </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="friday" role="tabpanel" aria-labelledby="friday-tab">
-                <h2 class="mt-4">Exercícios - Sexta</h2>
+                <h2 class="mt-4">Exercícios</h2>
                 <div class="card mb-3">
-                    <div class="card-header">
+                    <div class="card-header" data-bs-toggle="collapse" data-bs-target="#collapseSprints" aria-expanded="false" aria-controls="collapseSprints">
                         <h3 class="mb-0">Sprints</h3>
-                        <img src="https://via.placeholder.com/300x200/007bff/ffffff?text=Sprints" alt="Exemplo de Sprints" class="img-fluid" style="max-height: 200px;">
+                        <i class="fas fa-angle-down"></i>
                     </div>
-                    <div class="card-body">
-                        <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseSprints" aria-expanded="false" aria-controls="collapseSprints">
-                            Mostrar Detalhes
-                        </button>
-                        <div class="collapse" id="collapseSprints">
-                            <p class="exercise__description">Os sprints ajudam a aumentar a potência e resistência.</p>
-                            <p class="exercise__series"><i class="fas fa-check-circle"></i> Série: 10x100m</p>
+                    <div class="collapse" id="collapseSprints">
+                        <div class="card-body row">
+                            <img src="https://placehold.co/300x200" alt="Exemplo de Sprints" class="img-fluid col">
+                            <p class="exercise__description col">Os sprints ajudam a aumentar a potência e resistência.</p>
+                            <div class="row">
+                                <div class="exercise__series"><i class="fas fa-check-circle"></i> Série: 3x10</div>
+                            </div> 
                         </div>
                     </div>
                 </div>
                 <div class="card mb-3">
-                    <div class="card-header">
+                    <div class="card-header" data-bs-toggle="collapse" data-bs-target="#collapseSuperman" aria-expanded="false" aria-controls="collapseSuperman">
                         <h3 class="mb-0">Superman</h3>
-                        <img src="https://via.placeholder.com/300x200/007bff/ffffff?text=Superman" alt="Exemplo de Superman" class="img-fluid" style="max-height: 200px;">
+                        <i class="fas fa-angle-down"></i>
                     </div>
-                    <div class="card-body">
-                        <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseSuperman" aria-expanded="false" aria-controls="collapseSuperman">
-                            Mostrar Detalhes
-                        </button>
-                        <div class="collapse" id="collapseSuperman">
-                            <p class="exercise__description">O Superman fortalece a parte inferior das costas.</p>
-                            <p class="exercise__series"><i class="fas fa-check-circle"></i> Série: 3x12</p>
+                    <div class="collapse" id="collapseSuperman">
+                        <div class="card-body row">
+                            <img src="https://placehold.co/300x200" alt="Exemplo de Superman" class="img-fluid col">
+                            <p class="exercise__description col">O Superman fortalece a parte inferior das costas.</p>
+                            <div class="row">
+                                <div class="exercise__series"><i class="fas fa-check-circle"></i> Série: 3x10</div>
+                            </div> 
                         </div>
                     </div>
                 </div>
@@ -233,5 +232,19 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelectorAll('.card-header').forEach(header => {
+            header.addEventListener('click', function () {
+                const icon = header.querySelector('i');
+                if (icon.classList.contains('fa-angle-down')) {
+                    icon.classList.remove('fa-angle-down');
+                    icon.classList.add('fa-angle-up');
+                } else {
+                    icon.classList.remove('fa-angle-up');
+                    icon.classList.add('fa-angle-down');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
