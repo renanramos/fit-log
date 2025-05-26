@@ -1,0 +1,181 @@
+/* === Root Variables === */
+:root {
+    --color-primary: #6c757d; /* Cinza médio para elementos principais */
+    --color-primary-dark: #495057; /* Cinza escuro para hover e destaques */
+    --color-secondary: #f8f9fa; /* Off-white para fundo */
+    --color-secondary-dark: #e9ecef; /* Cinza claro para áreas de destaque */
+    --color-text: #343a40; /* Cinza escuro para texto */
+    --color-text-light: #6c757d; /* Cinza médio para texto secundário */
+    --color-border: #dee2e6; /* Cinza claro para bordas */
+    --color-white: #ffffff; /* Branco puro */
+}
+
+/* === Global Styles === */
+body {
+    background-color: var(--color-secondary); /* Fundo off-white */
+    font-family: 'Roboto', sans-serif; /* Fonte moderna e legível */
+    color: var(--color-text); /* Texto em cinza escuro */
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: var(--color-primary); /* Cinza médio para títulos */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* === Navbar === */
+.navbar {
+    background-color: var(--color-white); /* Fundo branco puro */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.navbar-brand__logo {
+    width: 2.5em; 
+    height: 2.5em;
+}
+
+.nav-link {
+    color: var(--color-text-light); /* Cinza médio para links */
+    font-weight: 500;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-link--active {
+    background-color: var(--color-primary); /* Cinza médio */
+    border-radius: 0.25rem;
+    color: var(--color-white);
+}
+
+.nav-link:hover {
+    background-color: var(--color-primary-dark); /* Cinza escuro no hover */
+    color: var(--color-white);
+}
+
+/* === Card Component === */
+.card {
+    background-color: var(--color-white); /* Fundo branco puro */
+    border: 1px solid var(--color-border); /* Borda cinza claro */
+    border-radius: 0.5rem; /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Elevação no hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra mais intensa */
+}
+
+.card__header {
+    background-color: var(--color-primary); /* Cinza médio */
+    color: var(--color-white);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.card__header:hover {
+    background-color: var(--color-primary-dark); /* Cinza escuro no hover */
+}
+
+.card__header-title {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.card__header-icon {
+    transition: transform 0.3s ease;
+}
+
+.card__body {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os elementos se ajustem ao espaço disponível */
+    justify-content: center; /* Centraliza os elementos horizontalmente */
+    align-items: center; /* Centraliza os elementos verticalmente */
+    padding: 1.5rem;
+    gap: 1rem; /* Espaçamento entre os elementos */
+}
+
+.card__image {
+    max-width: 100%; /* Garante que a imagem não ultrapasse o contêiner */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 0.5rem; /* Bordas arredondadas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    object-fit: cover; /* Garante que a imagem seja cortada proporcionalmente */
+    display: block; /* Garante que a imagem seja tratada como um bloco */
+    margin: 0 auto; /* Centraliza a imagem horizontalmente */
+}
+
+.card__description {
+    flex: 1 1 60%; /* O texto ocupa 60% do espaço disponível */
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-text-light); /* Cinza médio */
+    margin-bottom: 0.5rem;
+}
+
+.card__series {
+    flex: 1 1 100%; /* Série ocupa toda a largura abaixo */
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: var(--color-primary); /* Cinza médio */
+    margin-top: 1rem;
+}
+
+/* === Tabs === */
+.tab {
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--color-border); /* Linha sutil abaixo das abas */
+}
+
+.tab__link {
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-light); /* Cinza médio */
+    border: none;
+    background: none;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.tab__link--active {
+    color: var(--color-primary); /* Cinza médio */
+    border-bottom: 3px solid var(--color-primary); /* Destaque na aba ativa */
+}
+
+.tab__link:hover {
+    color: var(--color-white); /* Texto branco no hover */
+    background-color: var(--color-primary-dark); /* Fundo cinza escuro no hover */
+}
+
+/* === Collapse Animation === */
+.collapse {
+    border-radius: 0.5rem; /* Bordas arredondadas */
+    padding: 1rem; /* Espaçamento interno */
+    background-color: transparent; /* Fundo transparente */
+    transition: all 0.3s ease; /* Transição suave */
+}
+
+/* === Buttons (if needed) === */
+.btn-primary {
+    background-color: var(--color-primary);
+    border: none;
+    color: var(--color-white);
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px); /* Elevação no hover */
+}
