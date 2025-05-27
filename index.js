@@ -13,8 +13,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Route for the homepage
 app.get('/', (req, res) => {
-    console.log('Homepage accessed');
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Start the server
