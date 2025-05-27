@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="exercises.css">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>FitLog</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="favicon.png" alt="Logo" class="navbar-brand__logo">
+                FitLog
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link--active" aria-current="page" href="exercises.html">Exercícios</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid my-5">
+        <h1 class="text-center mb-4">Registro de Treinos</h1>
+        <ul class="nav nav-tabs tab d-flex justify-content-center" id="exerciseTabs" role="tablist">
+            <li class="nav-item nav-item-responsive" role="presentation">
+                <a class="nav-link tab__link" id="monday-tab" data-bs-toggle="tab" href="#monday" role="tab"
+                    aria-controls="monday" aria-selected="true">SEG</a>
+            </li>
+            <li class="nav-item nav-item-responsive" role="presentation">
+                <a class="nav-link tab__link" id="tuesday-tab" data-bs-toggle="tab" href="#tuesday" role="tab"
+                    aria-controls="tuesday" aria-selected="false">TER</a>
+            </li>
+            <li class="nav-item nav-item-responsive" role="presentation">
+                <a class="nav-link tab__link" id="wednesday-tab" data-bs-toggle="tab" href="#wednesday" role="tab"
+                    aria-controls="wednesday" aria-selected="false">QUA</a>
+            </li>
+            <li class="nav-item nav-item-responsive" role="presentation">
+                <a class="nav-link tab__link" id="thursday-tab" data-bs-toggle="tab" href="#thursday" role="tab"
+                    aria-controls="thursday" aria-selected="false">QUI</a>
+            </li>
+            <li class="nav-item nav-item-responsive" role="presentation">
+                <a class="nav-link tab__link" id="friday-tab" data-bs-toggle="tab" href="#friday" role="tab"
+                    aria-controls="friday" aria-selected="false">SEX</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container my-5">
+        <div class="tab-content mt-3" id="exerciseTabsContent">
+            <!-- Segunda -->
+            <div class="tab-pane fade show active" id="monday" role="tabpanel" aria-labelledby="monday-tab">
+                <div class="accordion" id="accordionMonday">
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingSupinoReto">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseSupinoReto" aria-expanded="false"
+                                aria-controls="collapseSupinoReto">
+                                Banco Supino Reto
+                            </button>
+                        </h2>
+                        <div id="collapseSupinoReto" class="accordion-collapse collapse"
+                            aria-labelledby="headingSupinoReto" data-bs-parent="#accordionMonday">
+                            <div class="accordion-body">
+                                <div class="row align-items-center">
+                                    <!-- Imagem -->
+                                    <div class="col-12 col-lg-6 text-center">
+                                        <img class="img-fluid exercise__image" src="./images/supino-reto.gif"
+                                            alt="Supino Reto">
+                                    </div>
+                                    <!-- Descrição -->
+                                    <div class="col-12 col-lg-6 d-flex flex-column justify-content-between">
+                                        <div class="card__description">
+                                            <h5 class="exercise__title">Detalhes do Exercício</h5>
+                                            <ul class="exercise__details">
+                                                <li><i class="fas fa-dumbbell"></i> Carga: <strong>20kg</strong></li>
+                                                <li><i class="fas fa-stopwatch"></i> Intervalo: <strong>50
+                                                        segundos</strong></li>
+                                                <li><i class="fas fa-check-circle"></i>Série:<strong>3 x 12 -
+                                                    15</strong></li>
+                                            </ul>
+                                        </div>
+                                        <div class="card__series mt-3">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingSupinoInclinado">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseSupinoInclinado" aria-expanded="false"
+                                aria-controls="collapseSupinoInclinado">
+                                Supino Inclinado
+                            </button>
+                        </h2>
+                        <div id="collapseSupinoInclinado" class="accordion-collapse collapse"
+                            aria-labelledby="headingSupinoInclinado" data-bs-parent="#accordionMonday">
+                            <div class="accordion-body">
+                                <div class="row align-items-center">
+                                    <!-- Imagem -->
+                                    <div class="col-12 col-lg-6 text-center">
+                                        <img class="img-fluid exercise__image" src="./images/supino-inclinado.gif"
+                                            alt="Supino Inclinado">
+                                    </div>
+                                    <!-- Descrição -->
+                                    <div class="col-12 col-lg-6 d-flex flex-column justify-content-between">
+                                        <div class="card__description">
+                                            <h5 class="exercise__title">Detalhes do Exercício</h5>
+                                            <ul class="exercise__details">
+                                                <li><i class="fas fa-dumbbell"></i> Carga: <strong>17kg</strong></li>
+                                                <li><i class="fas fa-stopwatch"></i> Intervalo: <strong>50
+                                                        segundos</strong></li>
+                                                <li><i class="fas fa-check-circle"></i>Série:<strong>3 x 10 -
+                                                    12</strong></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingPeckDeck">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapsePeckDeck" aria-expanded="false"
+                                aria-controls="collapsePeckDeck">
+                                Peck Deck
+                            </button>
+                        </h2>
+                        <div id="collapsePeckDeck" class="accordion-collapse collapse" aria-labelledby="headingPeckDeck"
+                            data-bs-parent="#accordionMonday">
+                            <div class="accordion-body">
+                                <div class="row align-items-center">
+                                    <!-- Imagem -->
+                                    <div class="col-12 col-lg-6 text-center">
+                                        <img class="img-fluid exercise__image" src="./images/peck-deck.gif"
+                                            alt="Peck Deck">
+                                    </div>
+                                    <!-- Descrição -->
+                                    <div class="col-12 col-lg-6 d-flex flex-column justify-content-between">
+                                        <div class="card__description">
+                                            <h5 class="exercise__title">Detalhes do Exercício</h5>
+                                            <ul class="exercise__details">
+                                                <li><i class="fas fa-dumbbell"></i> Carga: <strong>35kg - 40kg -
+                                                        45kg</strong></li>
+                                                <li><i class="fas fa-stopwatch"></i> Intervalo: <strong>50
+                                                        segundos</strong></li>
+                                                <li><i class="fas fa-chart-line"></i> Pirâmide crescente:<br>
+                                                    1ª série: 15 repetições - 35kg<br>
+                                                    2ª série: 12 repetições - 40kg<br>
+                                                    3ª série: 10 repetições - 45kg
+                                                </li>
+                                                <li><i class="fas fa-check-circle"></i>Série:<strong>3 x 15 -
+                                                    12 - 10</strong></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTricepsCorda">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTricepsCorda" aria-expanded="false"
+                                aria-controls="collapseTricepsCorda">
+                                Tríceps Corda
+                            </button>
+                        </h2>
+                        <div id="collapseTricepsCorda" class="accordion-collapse collapse"
+                            aria-labelledby="headingTricepsCorda" data-bs-parent="#accordionMonday">
+                            <div class="accordion-body">
+                                <div class="row align-items-center">
+                                    <!-- Imagem -->
+                                    <div class="col-12 col-lg-6 text-center">
+                                        <img class="img-fluid exercise__image" src="./images/triceps-corda.gif"
+                                            alt="Tríceps Corda">
+                                    </div>
+                                    <!-- Descrição -->
+                                    <div class="col-12 col-lg-6 d-flex flex-column justify-content-between">
+                                        <div class="card__description">
+                                            <h5 class="exercise__title">Detalhes do Exercício</h5>
+                                            <ul class="exercise__details">
+                                                <li><i class="fas fa-dumbbell"></i> Carga: <strong>40kg - 35kg</strong>
+                                                </li>
+                                                <li><i class="fas fa-stopwatch"></i> Intervalo: <strong>50
+                                                        segundos</strong></li>
+                                                <li><i class="fas fa-arrow-down"></i> Drop Set:<br>
+                                                    8 repetições com 40kg e, em seguida, 12 repetições com 35kg.
+                                                </li>
+                                                <li><i class="fas fa-check-circle"></i>Série:<strong>3 x 15 -
+                                                    12 - 10</strong></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terça -->
+                <div class="tab-pane fade" id="tuesday" role="tabpanel" aria-labelledby="tuesday-tab">
+                    <div class="accordion" id="accordionTuesday">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingCorrer">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseCorrer" aria-expanded="false"
+                                    aria-controls="collapseCorrer">
+                                    Correr
+                                </button>
+                            </h2>
+                            <div id="collapseCorrer" class="accordion-collapse collapse" aria-labelledby="headingCorrer"
+                                data-bs-parent="#accordionTuesday">
+                                <div class="accordion-body">
+                                    <div class="row">
+                                        <!-- Vídeo ou Imagem -->
+                                        <div class="col-12 col-md-6">
+                                            <img src="https://placehold.co/300x200" alt="Exemplo de Correr"
+                                                class="card__image img-fluid">
+                                        </div>
+                                        <!-- Texto -->
+                                        <div class="col-12 col-md-6 d-flex align-items-center">
+                                            <p class="card__description">Correr melhora a resistência
+                                                cardiovascular.</p>
+                                        </div>
+                                    </div>
+                                    <div class="card__series mt-3"><i class="fas fa-check-circle"></i> Série:
+                                        3x10</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quarta -->
+                <div class="tab-pane fade" id="wednesday" role="tabpanel" aria-labelledby="wednesday-tab">
+                    <div class="accordion" id="accordionWednesday">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingLevantamento">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseLevantamento" aria-expanded="false"
+                                    aria-controls="collapseLevantamento">
+                                    Levantamento Terra
+                                </button>
+                            </h2>
+                            <div id="collapseLevantamento" class="accordion-collapse collapse"
+                                aria-labelledby="headingLevantamento" data-bs-parent="#accordionWednesday">
+                                <div class="accordion-body">
+                                    <div class="row">
+                                        <!-- Vídeo ou Imagem -->
+                                        <div class="col-12 col-md-6">
+                                            <img src="https://placehold.co/300x200" alt="Exemplo de Levantamento Terra"
+                                                class="card__image img-fluid">
+                                        </div>
+                                        <!-- Texto -->
+                                        <div class="col-12 col-md-6 d-flex align-items-center">
+                                            <p class="card__description">Este exercício é ótimo para as costas e
+                                                posterior
+                                                da coxa.</p>
+                                        </div>
+                                    </div>
+                                    <div class="card__series mt-3"><i class="fas fa-check-circle"></i> Série:
+                                        3x10</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quinta -->
+                <div class="tab-pane fade" id="thursday" role="tabpanel" aria-labelledby="thursday-tab">
+                    <div class="accordion" id="accordionThursday">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFlexao">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFlexao" aria-expanded="false"
+                                    aria-controls="collapseFlexao">
+                                    Flexão
+                                </button>
+                            </h2>
+                            <div id="collapseFlexao" class="accordion-collapse collapse" aria-labelledby="headingFlexao"
+                                data-bs-parent="#accordionThursday">
+                                <div class="accordion-body">
+                                    <div class="row">
+                                        <!-- Vídeo ou Imagem -->
+                                        <div class="col-12 col-md-6">
+                                            <img src="https://placehold.co/300x200" alt="Exemplo de Flexão"
+                                                class="card__image img-fluid">
+                                        </div>
+                                        <!-- Texto -->
+                                        <div class="col-12 col-md-6 d-flex align-items-center">
+                                            <p class="card__description">As flexões fortalecem o peito, ombros e
+                                                tríceps.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="card__series mt-3"><i class="fas fa-check-circle"></i> Série:
+                                        3x10</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sexta -->
+                <div class="tab-pane fade" id="friday" role="tabpanel" aria-labelledby="friday-tab">
+                    <div class="accordion" id="accordionFriday">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSprints">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseSprints" aria-expanded="false"
+                                    aria-controls="collapseSprints">
+                                    Sprints
+                                </button>
+                            </h2>
+                            <div id="collapseSprints" class="accordion-collapse collapse"
+                                aria-labelledby="headingSprints" data-bs-parent="#accordionFriday">
+                                <div class="accordion-body">
+                                    <div class="row">
+                                        <!-- Vídeo ou Imagem -->
+                                        <div class="col-12 col-md-6">
+                                            <img src="https://placehold.co/300x200" alt="Exemplo de Sprints"
+                                                class="card__image img-fluid">
+                                        </div>
+                                        <!-- Texto -->
+                                        <div class="col-12 col-md-6 d-flex align-items-center">
+                                            <p class="card__description">Os sprints ajudam a aumentar a potência
+                                                e
+                                                resistência.</p>
+                                        </div>
+                                    </div>
+                                    <div class="card__series mt-3"><i class="fas fa-check-circle"></i> Série:
+                                        3x10</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            document.querySelectorAll('.card-header').forEach(header => {
+                header.addEventListener('click', function () {
+                    const icon = header.querySelector('i');
+                    if (icon.classList.contains('fa-angle-down')) {
+                        icon.classList.remove('fa-angle-down');
+                        icon.classList.add('fa-angle-up');
+                    } else {
+                        icon.classList.remove('fa-angle-up');
+                        icon.classList.add('fa-angle-down');
+                    }
+                });
+            });
+        </script>
+</body>
+
+</html>
+        </script>
+</body>
+
+</html>

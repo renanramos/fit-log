@@ -1,0 +1,22 @@
+{
+  "name": "fitlog-server",
+  "version": "1.0.0",
+  "description": "Servidor local para o FitLog",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "start:dev": "nodemon --watch public/**/* index.js",
+    "build": "mkdir -p dist && cp -r public/* dist/",
+    "deploy": "npm run build && gh-pages -d dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

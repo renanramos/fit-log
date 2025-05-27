@@ -1,0 +1,349 @@
+/* === Root Variables === */
+:root {
+    --color-primary: #4caf50;
+    /* Verde suave para elementos principais */
+    --color-primary-dark: #388e3c;
+    /* Verde escuro para hover e destaques */
+    --color-secondary: #f8f9fa;
+    /* Off-white para fundo */
+    --color-secondary-dark: #e9ecef;
+    /* Cinza claro para áreas de destaque */
+    --color-text: #343a40;
+    /* Cinza escuro para texto */
+    --color-text-light: #6c757d;
+    /* Cinza médio para texto secundário */
+    --color-border: #dee2e6;
+    /* Cinza claro para bordas */
+    --color-white: #ffffff;
+    /* Branco puro */
+    --color-accent: #ff9800;
+    /* Laranja para destaques */
+}
+
+/* === Global Styles === */
+body {
+    background-color: var(--color-secondary);
+    /* Fundo off-white */
+    font-family: 'Roboto', sans-serif;
+    /* Fonte moderna e legível */
+    color: var(--color-text);
+    /* Texto em cinza escuro */
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: var(--color-primary);
+    /* Verde suave para títulos */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* === Navbar === */
+.navbar {
+    background-color: var(--color-white);
+    /* Fundo branco puro */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil */
+    padding: 1rem 2rem;
+}
+
+.navbar-brand__logo {
+    width: 3em;
+    height: 3em;
+}
+
+.nav-link {
+    color: var(--color-text-light);
+    /* Cinza médio para links */
+    font-weight: 500;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-link--active {
+    background-color: var(--color-primary);
+    /* Verde suave */
+    border-radius: 0.25rem;
+    color: var(--color-white);
+}
+
+.nav-link:hover {
+    background-color: var(--color-primary-dark);
+    /* Verde escuro no hover */
+    color: var(--color-white);
+}
+
+/* === Tabs === */
+.tab {
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--color-border);
+    /* Linha sutil abaixo das abas */
+}
+
+.tab__link {
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-light);
+    /* Cinza médio */
+    border: none;
+    background: none;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.tab__link--active {
+    color: var(--color-primary);
+    /* Verde suave */
+    border-bottom: 3px solid var(--color-primary);
+    /* Destaque na aba ativa */
+}
+
+.tab__link:hover {
+    color: var(--color-white);
+    /* Texto branco no hover */
+    background-color: var(--color-primary-dark);
+    /* Fundo verde escuro no hover */
+}
+
+/* === Accordion === */
+.accordion-button {
+    background-color: var(--color-white);
+    color: var(--color-text);
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.accordion-button:hover {
+    background-color: var(--color-secondary-dark);
+    /* Fundo cinza claro no hover */
+    color: var(--color-primary-dark);
+    /* Texto verde escuro */
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--color-primary);
+    /* Fundo verde para botão ativo */
+    color: var(--color-white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil */
+}
+
+.accordion-body {
+    background-color: var(--color-secondary-dark);
+    /* Fundo cinza claro */
+    border: 1px solid var(--color-border);
+    /* Borda sutil */
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+}
+
+/* === Card Component === */
+.card {
+    background-color: var(--color-white);
+    /* Fundo branco puro */
+    border: 1px solid var(--color-border);
+    /* Borda cinza claro */
+    border-radius: 0.5rem;
+    /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra para destaque */
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    /* Elevação no hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    /* Sombra mais intensa */
+}
+
+.card__description {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-text-light);
+    /* Cinza médio */
+    margin-bottom: 0.5rem;
+}
+
+/* === Série do exercício === */
+.card__series {
+    font-size: 1rem;
+    /* Tamanho da fonte */
+    font-weight: 600;
+    /* Peso da fonte */
+    color: var(--color-primary);
+    /* Cor verde suave */
+    display: flex;
+    /* Alinha o ícone e o texto */
+    align-items: center;
+    /* Alinha verticalmente o ícone e o texto */
+    gap: 0.5rem;
+    /* Espaçamento entre o ícone e o texto */
+    margin-top: 1rem;
+    /* Espaçamento superior */
+}
+
+/* === Imagem do exercício === */
+.exercise__image {
+     width: 100%; /* Responsividade: ocupa 100% da largura do contêiner */
+    max-width: 400px; /* Limita o tamanho máximo da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 0.5rem; /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+/* === Descrição do exercício === */
+.card__description {
+    display: flex;
+    /* Exibe os itens como uma coluna */
+    flex-direction: column;
+    /* Alinha os itens verticalmente */
+    gap: 0.5rem;
+    /* Espaçamento entre os itens */
+    font-size: 1rem;
+    /* Tamanho da fonte padrão */
+    line-height: 1.5;
+    /* Altura da linha para legibilidade */
+    color: var(--color-text-light);
+    /* Cor do texto */
+    margin: 0;
+    /* Remove margens externas */
+    padding: 1rem;
+    /* Adiciona espaçamento interno */
+    background-color: var(--color-secondary-dark);
+    /* Fundo cinza claro */
+    border-radius: 0.5rem;
+    /* Bordas arredondadas */
+}
+
+/* === Detalhes do exercício === */
+.exercise__detail {
+    font-weight: 500;
+    /* Destaque no texto */
+}
+
+/* === Título do bloco de descrição === */
+.exercise__title {
+    font-size: 1.25rem;
+    /* Tamanho maior para destaque */
+    font-weight: 600;
+    /* Peso da fonte */
+    color: var(--color-primary);
+    /* Cor verde suave */
+    margin-bottom: 0.75rem;
+    /* Espaçamento abaixo do título */
+}
+
+/* === Lista de detalhes do exercício === */
+.exercise__details {
+    list-style: none;
+    /* Remove os marcadores padrão da lista */
+    padding: 0;
+    /* Remove o padding padrão */
+    margin: 0;
+    /* Remove a margem padrão */
+    display: flex;
+    flex-direction: column;
+    /* Alinha os itens verticalmente */
+    gap: 0.5rem;
+    /* Espaçamento entre os itens */
+}
+
+.exercise__details li {
+    font-size: 1rem;
+    /* Tamanho da fonte */
+    line-height: 1.5;
+    /* Altura da linha para legibilidade */
+    color: var(--color-text-light);
+    /* Cor do texto */
+    display: flex;
+    align-items: center;
+    /* Alinha o texto e o ícone verticalmente */
+    gap: 0.5rem;
+    /* Espaçamento entre o ícone e o texto */
+}
+
+.exercise__details li i {
+    color: var(--color-primary-dark);
+    /* Cor do ícone */
+    font-size: 1.2rem;
+    /* Tamanho do ícone */
+}
+
+/* === Buttons === */
+.btn-primary {
+    background-color: var(--color-primary);
+    border: none;
+    color: var(--color-white);
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+    /* Elevação no hover */
+}
+
+/* === Responsiveness === */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    .navbar-brand__logo {
+        width: 2.5em;
+        height: 2.5em;
+    }
+
+    .tab__link {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .accordion-body {
+        padding: 1rem;
+    }
+
+    .card__description {
+        font-size: 0.85rem;
+        /* Fonte menor para telas muito pequenas */
+        line-height: 1.3;
+        /* Ajusta a altura da linha para manter legibilidade */
+    }
+
+    .exercise__image {
+        max-width: 300px; /* Reduz o tamanho máximo da imagem em telas menores */
+    }
+}
+
+@media (max-width: 576px) {
+    .card__description {
+        font-size: 0.85rem;
+        /* Fonte menor para telas muito pequenas */
+        line-height: 1.3;
+        /* Ajusta a altura da linha para manter legibilidade */
+    }
+
+    .exercise__image {
+        max-width: 250px; /* Reduz ainda mais o tamanho máximo da imagem em dispositivos muito pequenos */
+    }
+}
+
+@media (min-width: 992px) {
+    .card__description {
+        font-size: 1.1rem;
+        /* Aumenta o tamanho da fonte em telas grandes */
+        line-height: 1.6;
+        /* Ajusta a altura da linha para maior legibilidade */
+    }
+
+    .exercise__image {
+        max-width: 500px; /* Aumenta o tamanho máximo da imagem em telas grandes */
+    }
+}
