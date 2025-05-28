@@ -1,0 +1,44 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # ou master, dependendo da sua branch principal
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Deploy
+        run: |
+          echo "Construindo o projeto com base em fit-log"
+          npm install -g @angular/cli
+          npm install -g angular-cli-ghpages
+          ng build --configuration production --base-href="/fit-log/"
+
+          # Adiciona arquivo .nojekyll para evitar processamento Jekyll
+          touch dist/fit-log/.nojekyll
+
+          # Implementa um arquivo 404.html robusto
+          echo '<!DOCTYPE html><html><head><meta charset="utf-8"><title>Redirecionando...</title><script>sessionStorage.redirect = location.href;</script><meta http-equiv="refresh" content="0;URL=/${{ env.REPO_NAME }}/"></head><body><h1>Redirecionando...</h1></body></html>' > dist/${{ env.REPO_NAME }}/404.html
+
+          # Adiciona script de redirecionamento no index.html
+          sed -i '/<head>/a <script>if (sessionStorage.redirect) { const redirect = sessionStorage.redirect; delete sessionStorage.redirect; if (redirect !== location.href) { history.replaceState(null, null, redirect.replace(location.origin, "")); } }</script>' dist/${{ env.REPO_NAME }}/index.html
+
+          # Deploy com GITHUB_TOKEN incluído no comando
+          echo "Executando deploy para GitHub Pages..."
+          npx angular-cli-ghpages --dir=dist/fit-log --repo=https://github.com/renanramos/fit-log.git --name="GitHub Actions" --email=renanrramossi@gmail.com --no-silent
+
+      - name: Output deployment URL
+        run: echo "Seu site foi implantado em https://renanramos.github.io/fit-log//"
