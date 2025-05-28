@@ -1,0 +1,30 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # ou master, dependendo da sua branch principal
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Deploy
+        run: |
+          npm install -g @angular/cli
+          npm install -g angular-cli-ghpages
+          ng build --configuration production --base-href="/fitlog/"
+          npx angular-cli-ghpages --dir=dist/fitlog --repo=https://github.com/${{ github.repository }}.git --name="GitHub Actions" --email=actions@github.com
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

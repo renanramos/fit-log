@@ -1,0 +1,47 @@
+<div class="accordion-item">
+    <h2 class="accordion-header" [id]="'heading' + exercise.id">
+        <button class="accordion-button" [class.collapsed]="isCollapsed" type="button"
+            (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+            [attr.aria-controls]="'collapse' + exercise.id">
+            {{ exercise.title }}
+        </button>
+    </h2>
+    <div [id]="'collapse' + exercise.id" [ngbCollapse]="isCollapsed" class="accordion-collapse"
+        [attr.aria-labelledby]="'heading' + exercise.id" [attr.data-bs-parent]="'#' + accordionId">
+        <div class="accordion-body">
+            <div class="row align-items-center">
+                <!-- Imagem -->
+                <div class="col-12 col-lg-6 text-center">
+                    <img class="img-fluid exercise__image" [src]="exercise.image" [alt]="exercise.title">
+                </div>
+                <!-- Descrição -->
+                <div class="col-12 col-lg-6 d-flex flex-column justify-content-between">
+                    <div class="card__description">
+                        <h5 class="exercise__title">Detalhes do Exercício</h5>
+                        <ul class="exercise__details">
+                            <li *ngIf="exercise.details.weight"><i class="fas fa-dumbbell"></i> Carga: <strong>{{ exercise.details.weight }}</strong>
+                            </li>
+                            <li *ngIf="exercise.details.interval"><i class="fas fa-stopwatch"></i> Intervalo: <strong>{{ exercise.details.interval
+                                    }}</strong>
+                            </li>
+
+                            <ng-container *ngIf="exercise.details.technique">
+                                <li *ngIf="exercise.details.technique.type === 'pyramid'">
+                                    <i class="fas fa-chart-line"></i> Pirâmide crescente:<br>
+                                    {{ exercise.details.technique.description }}
+                                </li>
+                                <li *ngIf="exercise.details.technique.type === 'dropset'">
+                                    <i class="fas fa-arrow-down"></i> Drop Set:<br>
+                                    {{ exercise.details.technique.description }}
+                                </li>
+                            </ng-container>
+
+                            <li><i class="fas fa-check-circle"></i>Série: <strong>{{ exercise.details.set }}</strong>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
