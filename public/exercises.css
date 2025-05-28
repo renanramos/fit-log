@@ -40,6 +40,11 @@ h1 {
     margin-bottom: 1rem;
 }
 
+/* === Container com largura mínima === */
+.min-width-container {
+    min-width: 300px;
+}
+
 /* === Navbar === */
 .navbar {
     background-color: var(--color-white);
@@ -111,6 +116,9 @@ h1 {
     color: var(--color-text);
     font-weight: 600;
     transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .accordion-button:hover {
@@ -126,6 +134,12 @@ h1 {
     color: var(--color-white);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     /* Sombra sutil */
+}
+
+.accordion-button-content {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
 }
 
 .accordion-body {
@@ -187,12 +201,43 @@ h1 {
 
 /* === Imagem do exercício === */
 .exercise__image {
-     width: 100%; /* Responsividade: ocupa 100% da largura do contêiner */
-    max-width: 400px; /* Limita o tamanho máximo da imagem */
-    height: auto; /* Mantém a proporção da imagem */
-    border-radius: 0.5rem; /* Bordas arredondadas */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    margin: 0 auto; /* Centraliza horizontalmente */
+    width: 100%;
+    /* Responsividade: ocupa 100% da largura do contêiner */
+    max-width: 400px;
+    /* Limita o tamanho máximo da imagem */
+    height: auto;
+    /* Mantém a proporção da imagem */
+    border-radius: 0.5rem;
+    /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil */
+    margin: 0 auto;
+    /* Centraliza horizontalmente */
+}
+
+/* === Padronização das imagens dos exercícios === */
+.exercise__image-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.exercise__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.exercise__image:hover {
+    transform: scale(1.02);
 }
 
 /* === Descrição do exercício === */
@@ -273,6 +318,16 @@ h1 {
     /* Tamanho do ícone */
 }
 
+/* === Exercise Container === */
+.exercise-container {
+    min-width: 300px;
+}
+
+.exercise-container .exercise__title:first-child {
+    margin-bottom: 0.5rem;
+    padding-left: 0.5rem;
+}
+
 /* === Buttons === */
 .btn-primary {
     background-color: var(--color-primary);
@@ -288,6 +343,153 @@ h1 {
     background-color: var(--color-primary-dark);
     transform: translateY(-2px);
     /* Elevação no hover */
+}
+
+/* === Container com largura mínima === */
+.min-width-container {
+    min-width: 300px;
+}
+
+/* === Difficulty Badge === */
+.difficulty-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Cores para diferentes níveis de dificuldade */
+.difficulty-badge--beginner {
+    background-color: #28a745;
+    /* Verde */
+    color: white;
+}
+
+.difficulty-badge--intermediate {
+    background-color: #ffc107;
+    /* Amarelo */
+    color: #212529;
+}
+
+.difficulty-badge--advanced {
+    background-color: #dc3545;
+    /* Vermelho */
+    color: white;
+}
+
+.difficulty-badge--easy {
+    background-color: #28a745;
+    /* Verde para fácil */
+    color: white;
+}
+
+.difficulty-badge--medium {
+    background-color: #ffc107;
+    /* Amarelo para médio */
+    color: var(--color-text);
+    /* Texto escuro para contraste */
+}
+
+.difficulty-badge--hard {
+    background-color: #dc3545;
+    /* Vermelho para difícil */
+    color: white;
+}
+
+/* Posicionamento no accordion */
+.accordion-button .difficulty-badge {
+    margin-left: auto;
+    margin-right: 2rem;
+}
+
+/* === Posicionamento das ações do exercício === */
+.exercise__container {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.exercise-actions {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    z-index: 10;
+}
+
+.exercise-actions button {
+    background: transparent;
+    border: none;
+    color: var(--color-white);
+    font-size: 1.2rem;
+    padding: 0.25rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.exercise-actions button:hover {
+    transform: scale(1.2);
+    color: var(--color-accent);
+}
+
+.btn-action {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-action i {
+    font-size: 1.2rem;
+}
+
+.btn-favorite:hover {
+    background-color: #ffcdd2;
+    color: #e53935;
+}
+
+.btn-completed:hover {
+    background-color: #c8e6c9;
+    color: var(--color-primary);
+}
+
+.btn-favorite.active {
+    background-color: #ffcdd2;
+    color: #e53935;
+}
+
+.btn-favorite.active i {
+    font-weight: 900;
+    /* Ícone sólido quando ativo */
+}
+
+.btn-completed.active {
+    background-color: #c8e6c9;
+    color: var(--color-primary);
+}
+
+.btn-completed.active i {
+    font-weight: 900;
+    /* Ícone sólido quando ativo */
 }
 
 /* === Responsiveness === */
@@ -317,8 +519,22 @@ h1 {
         /* Ajusta a altura da linha para manter legibilidade */
     }
 
+    .exercise__image-container {
+        max-width: 300px;
+    }
+
     .exercise__image {
-        max-width: 300px; /* Reduz o tamanho máximo da imagem em telas menores */
+        max-width: 300px;
+        aspect-ratio: 4/3;
+    }
+
+    .exercise-actions {
+        padding: 0.3rem;
+    }
+
+    .exercise-actions button {
+        font-size: 1rem;
+        padding: 0.15rem;
     }
 }
 
@@ -330,8 +546,25 @@ h1 {
         /* Ajusta a altura da linha para manter legibilidade */
     }
 
+    .exercise__image-container {
+        max-width: 250px;
+    }
+
     .exercise__image {
-        max-width: 250px; /* Reduz ainda mais o tamanho máximo da imagem em dispositivos muito pequenos */
+        max-width: 250px;
+    }
+
+    .difficulty-badge {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.4rem;
+    }
+
+    .exercise-actions {
+        padding: 0.2rem;
+    }
+
+    .exercise-actions button {
+        font-size: 0.9rem;
     }
 }
 
@@ -343,7 +576,12 @@ h1 {
         /* Ajusta a altura da linha para maior legibilidade */
     }
 
+    .exercise__image-container {
+        max-width: 500px;
+    }
+
     .exercise__image {
-        max-width: 500px; /* Aumenta o tamanho máximo da imagem em telas grandes */
+        max-width: 500px;
+        aspect-ratio: 4/3;
     }
 }
