@@ -4,27 +4,58 @@ on:
   push:
     branches:
       - main  # ou master, dependendo da sua branch principal
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main  # ou master, dependendo da sua branch principal
 
 jobs:
   deploy:
+    # Executa apenas se for um push direto na branch principal OU se for um PR fechado com merge
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          persist-credentials: true # Garante que as credenciais serão mantidas para o deploy
+          fetch-depth: 0 # Obtém todo o histórico para evitar problemas com o deploy
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16'
+          cache: 'npm' # Adiciona cache para melhorar o tempo de execução
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci # Usa ci em vez de install para garantir instalações consistentes
 
-      - name: Deploy
+      - name: Identify repository name
+        id: repo_name
+        run: echo "REPO_NAME=$(echo $GITHUB_REPOSITORY | cut -d '/' -f 2)" >> $GITHUB_ENV
+      - name: Build and Deploy
         run: |
+          echo "Construindo o projeto com base em ${{ env.REPO_NAME }}"
           npm install -g @angular/cli
           npm install -g angular-cli-ghpages
-          ng build --configuration production --base-href="/fitlog/"
-          npx angular-cli-ghpages --dir=dist/fitlog --repo=https://github.com/${{ github.repository }}.git --name="GitHub Actions" --email=actions@github.com
+          ng build --configuration production --base-href="/${{ env.REPO_NAME }}/"
+
+          # Adiciona arquivo .nojekyll para evitar processamento Jekyll
+          touch dist/${{ env.REPO_NAME }}/.nojekyll
+
+          # Implementa um arquivo 404.html robusto
+          echo '<!DOCTYPE html><html><head><meta charset="utf-8"><title>Redirecionando...</title><script>sessionStorage.redirect = location.href;</script><meta http-equiv="refresh" content="0;URL=/${{ env.REPO_NAME }}/"></head><body><h1>Redirecionando...</h1></body></html>' > dist/${{ env.REPO_NAME }}/404.html
+
+          # Adiciona script de redirecionamento no index.html
+          sed -i '/<head>/a <script>if (sessionStorage.redirect) { const redirect = sessionStorage.redirect; delete sessionStorage.redirect; if (redirect !== location.href) { history.replaceState(null, null, redirect.replace(location.origin, "")); } }</script>' dist/${{ env.REPO_NAME }}/index.html
+
+          # Deploy com GITHUB_TOKEN incluído no comando
+          echo "Executando deploy para GitHub Pages..."
+          npx angular-cli-ghpages --dir=dist/${{ env.REPO_NAME }} --repo=https://github.com/${{ github.repository }}.git --name="GitHub Actions" --email=actions@github.com --no-silent
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Output deployment URL
+        run: echo "Seu site foi implantado em https://$(echo $GITHUB_REPOSITORY_OWNER).github.io/${{ env.REPO_NAME }}/"
