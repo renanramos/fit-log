@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ExerciseItemComponent } from './exercise-item/exercise-item.component';
 import workout from '@domain/workout.const';
 import { WeeklyWorkout } from '@domain/weekly-workout.model';
+import { ExerciseItemComponent } from './exercise-item/exercise-item.component';
 
 @Component({
     selector: 'app-exercises',

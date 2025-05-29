@@ -51,7 +51,31 @@ const workout: WeeklyWorkout = {
           }
         }
       }
-    ]
+    ],
+    combinedExerciseSets: [{
+      name: "Triceps",
+      exercises: [
+        {
+          id: "TricepsPoliaBarraW",
+          title: "Triceps na Polia Barra W",
+          image: "./assets/triceps-polia-barra-w.gif",
+          details: {
+            weight: "35kg ou 40Kg",
+            set: "3 x 12 - 15"
+          }
+        },
+        {
+          id: "TricepsBancoPernasDobradas",
+          title: "Triceps Banco com Perna Dobradas",
+          image: "./assets/triceps-no-banco.gif",
+          details: {
+            weight: "0kg",
+            interval: "50 segundos",
+            set: "3 x 12"
+          }
+        }],
+      executionType: 'alternating'
+    }]
   },
   tuesday: {
     exercises: [

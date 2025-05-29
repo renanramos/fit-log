@@ -24,8 +24,7 @@
             [attr.aria-labelledby]="day.value + '-tab'">
             <div class="accordion" [id]="'accordion' + day.labelEn">
                 <app-exercise-item
-                    *ngFor="let exercise of weeklyWorkout[day.value]?.exercises"
-                    [exercise]="exercise"
+                    [weeklyWorkout]="weeklyWorkout"
                     [accordionId]="'accordion' + day.labelEn">
                 </app-exercise-item>
             </div>
