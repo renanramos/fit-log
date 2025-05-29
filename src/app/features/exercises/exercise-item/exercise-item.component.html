@@ -19,21 +19,26 @@
                     <div class="card__description">
                         <h5 class="exercise__title">Detalhes do Exercício</h5>
                         <ul class="exercise__details">
-                            <li *ngIf="exercise.details.weight"><i class="fas fa-dumbbell"></i> Carga: <strong>{{ exercise.details.weight }}</strong>
+                            <li *ngIf="exercise.details.weight"><i class="fas fa-dumbbell"></i> Carga: <strong>{{
+                                    exercise.details.weight }}</strong>
                             </li>
-                            <li *ngIf="exercise.details.interval"><i class="fas fa-stopwatch"></i> Intervalo: <strong>{{ exercise.details.interval
+                            <li *ngIf="exercise.details.interval"><i class="fas fa-stopwatch"></i> Intervalo: <strong>{{
+                                    exercise.details.interval
                                     }}</strong>
                             </li>
 
                             <ng-container *ngIf="exercise.details.technique">
-                                <li *ngIf="exercise.details.technique.type === 'pyramid'">
-                                    <i class="fas fa-chart-line"></i> Pirâmide crescente:<br>
-                                    {{ exercise.details.technique.description }}
-                                </li>
-                                <li *ngIf="exercise.details.technique.type === 'dropset'">
-                                    <i class="fas fa-arrow-down"></i> Drop Set:<br>
-                                    {{ exercise.details.technique.description }}
-                                </li>
+                                <div class="special-technique">
+                                    <div class="technique-label" *ngIf="exercise.details.technique.type === 'pyramid'">
+                                        <i class="fas fa-chart-line"></i> Pirâmide crescente:
+                                    </div>
+                                    <div class="technique-label" *ngIf="exercise.details.technique.type === 'dropset'">
+                                        <i class="fas fa-arrow-down"></i> Drop Set:
+                                    </div>
+                                    <div class="technique-description">
+                                        {{ exercise.details.technique.description }}
+                                    </div>
+                                </div>
                             </ng-container>
 
                             <li><i class="fas fa-check-circle"></i>Série: <strong>{{ exercise.details.set }}</strong>
