@@ -23,6 +23,9 @@
                                     }}</strong>
                             </li>
 
+                            <li><i class="fas fa-check-circle"></i>Série: <strong>{{ exercise.details.set }}</strong>
+                            </li>
+
                             <ng-container *ngIf="exercise.details.technique">
                                 <div class="special-technique">
                                     <div class="technique-label" *ngIf="exercise.details.technique.type === 'pyramid'">
@@ -36,9 +39,6 @@
                                     </div>
                                 </div>
                             </ng-container>
-
-                            <li><i class="fas fa-check-circle"></i>Série: <strong>{{ exercise.details.set }}</strong>
-                            </li>
                         </ul>
                     </div>
                 </div>
