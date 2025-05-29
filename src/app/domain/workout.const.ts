@@ -5,8 +5,18 @@ const workout: WeeklyWorkout = {
     exercises: [
       {
         id: "SupinoReto",
-        title: "Supino Reto",
+        title: "Banco Supino Reto",
         image: "./assets/supino-reto.gif",
+        details: {
+          weight: "20kg",
+          interval: "50 segundos",
+          set: "3 x 12 - 15"
+        }
+      },
+      {
+        id: "SupinoRetoInclinado",
+        title: "Banco Supino Inclinado",
+        image: "./assets/supino-inclinado.gif",
         details: {
           weight: "17kg",
           interval: "50 segundos",
@@ -29,12 +39,12 @@ const workout: WeeklyWorkout = {
       },
       {
         id: "TricepsCorda",
-        title: "Tríceps Corda",
+        title: "Tríceps na Polia com Corda",
         image: "./assets/triceps-corda.gif",
         details: {
           weight: "40kg - 35kg",
           interval: "50 segundos",
-          set: "3 x 15 - 12 - 10",
+          set: "3 x 8 - 12",
           technique: {
             type: "dropset",
             description: "8 repetições com 40kg e, em seguida, 12 repetições com 35kg."
