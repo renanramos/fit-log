@@ -19,14 +19,14 @@
 
 /* Melhor destaque para o título do exercício - centralizado */
 .exercise__title {
-  font-size: 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
   padding-bottom: 0.75rem;
   border-bottom: 2px solid var(--color-secondary-dark);
   margin-bottom: 1rem;
   color: var(--color-primary-dark);
   display: flex;
   align-items: center;
-  justify-content: center;
   text-align: center;
   gap: 0.5rem;
   width: 100%;
@@ -49,12 +49,21 @@
 
 /* Melhorar a exibição dos detalhes do exercício */
 .exercise__details {
-  margin: 0.5rem 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .exercise__details li {
-  padding: 0.5rem 0;
-  border-bottom: 1px solid var(--color-secondary-dark);
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--color-text-light);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .exercise__details li:last-child {
@@ -173,32 +182,39 @@
   border-left-width: 6px;
 }
 
-/* Estilos para exercícios combinados */
+/* Ajustes para exercícios combinados */
 .combined-exercises-container {
-  /* margin-bottom: 1.5rem; */
   width: 100%;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  /* Melhor rolagem em dispositivos iOS */
 }
 
 .combined-set .accordion-button {
   font-weight: 600;
 }
 
+.execution-type {
+  font-size: 0.9rem;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
 .combined-exercises-grid {
   display: flex;
   gap: 1.25rem;
   margin-top: 0.5rem;
-  padding-top: 0.5rem;
+  padding: 0.75rem 0;
   min-width: min-content;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  flex-flow: column;
 }
 
 .combined-exercise-card {
   min-width: 300px;
-  /* Largura mínima para cada card */
-  max-width: 400px;
-  /* Largura máxima para cada card */
+  /* max-width: 400px; */
   flex-shrink: 0;
-  /* Evita que os cards sejam comprimidos */
   border-radius: 0.5rem;
   background-color: var(--color-white);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -208,42 +224,140 @@
   height: 100%;
 }
 
-.combined-exercise-card .exercise-card-container {
-  padding: 1.25rem;
-}
-
-.combined-exercise-card .image-column {
-  min-width: 120px;
-  max-width: 180px;
-  /* Tamanho consistente com outros cards */
-}
-
-/* Estilo para o cabeçalho dos exercícios combinados */
 .exercise-header {
-  font-size: 1.1rem;
-  font-weight: 600;
-  padding-bottom: 0.75rem;
-  margin-bottom: 0.75rem;
-  margin-top: 0.75rem;
-  margin-left: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.75rem 1rem 0.75rem;
   border-bottom: 1px solid var(--color-secondary-dark);
   color: var(--color-primary-dark);
+  text-align: center;
+}
+
+.exercise-content {
+  padding: 0.75rem;
+}
+
+.image-wrapper {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  width: 100%;
+  justify-content: center;
+  height: 100%;
+  padding: 1rem;
 }
 
-@media (min-width: 768px) {
-  .combined-exercise-card {
-    min-width: 250px;
+/* Ajustes para imagens em exercícios combinados */
+.combined-exercise-card .image-wrapper {
+  height: 180px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.exercise__image {
+  max-width: 100%;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+}
+
+.combined-exercise-card .exercise__image {
+  max-height: 180px;
+  border-radius: 0.5rem;
+}
+
+/* Ajustes específicos para dispositivos móveis */
+@media (min-width: 320px) and (max-width: 768px) {
+  .combined-set .accordion-button {
+    font-size: 0.95rem;
+    padding: 0.75rem;
   }
-}
 
-@media (max-width: 576px) {
+  .execution-type {
+    font-size: 0.8rem;
+  }
+
+  .combined-exercise-card {
+    min-width: 260px;
+    /* Largura reduzida para móveis */
+  }
+
   .exercise-header {
     font-size: 1rem;
-    padding-bottom: 0.5rem;
-    margin-bottom: 0.5rem;
+    padding: 0.6rem 0.75rem;
   }
+
+  .combined-exercise-card .image-wrapper {
+    height: 100%;
+    /* Altura menor para móveis */
+  }
+
+  .combined-exercise-card .exercise__image {
+    max-height: 100%;
+  }
+
+  .combined-exercise-card .exercise__details {
+    font-size: 0.9rem;
+  }
+
+  .combined-exercise-card .technique-description {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    padding-left: 0.7rem;
+  }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 576px) {
+  .combined-set .accordion-button {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .combined-exercise-card {
+    min-width: 240px;
+  }
+
+  .exercise-header {
+    font-size: 0.95rem;
+  }
+
+  .combined-exercise-card .image-wrapper {
+    height: 140px;
+  }
+
+  .combined-exercise-card .exercise__image {
+    max-height: 100%;
+  }
+
+  .combined-exercise-card .exercise__details li {
+    padding: 0.35rem 0;
+  }
+
+  .combined-exercise-card .technique-label {
+    font-size: 0.85rem;
+  }
+
+  .combined-exercise-card .technique-description {
+    font-size: 0.8rem;
+    padding-left: 0.5rem;
+  }
+}
+
+/* Melhoria na rolagem horizontal */
+.combined-exercises-grid::-webkit-scrollbar {
+  height: 6px;
+}
+
+.combined-exercises-grid::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.combined-exercises-grid::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.combined-exercises-grid::-webkit-scrollbar-thumb:hover {
+  background: #999;
 }
