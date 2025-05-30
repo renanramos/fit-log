@@ -136,11 +136,11 @@
   .exercise__details li {
     padding: 0.4rem 0;
   }
-  
+
   .exercise-content-container {
     flex-direction: column;
   }
-  
+
   .image-column {
     max-width: 100%;
     margin-top: 1rem;
@@ -154,7 +154,7 @@
     line-height: 1.4;
     padding-left: 0.75rem;
   }
-  
+
   .exercise__title {
     font-size: 1.1rem;
   }
@@ -175,8 +175,8 @@
 
 /* Estilos para exercícios combinados */
 .combined-exercises-container {
-  margin-bottom: 1.5rem;
-    width: 100%;
+  /* margin-bottom: 1.5rem; */
+  width: 100%;
   overflow-x: auto;
 }
 
@@ -193,9 +193,12 @@
 }
 
 .combined-exercise-card {
-  min-width: 300px; /* Largura mínima para cada card */
-  max-width: 400px; /* Largura máxima para cada card */
-  flex-shrink: 0; /* Evita que os cards sejam comprimidos */
+  min-width: 300px;
+  /* Largura mínima para cada card */
+  max-width: 400px;
+  /* Largura máxima para cada card */
+  flex-shrink: 0;
+  /* Evita que os cards sejam comprimidos */
   border-radius: 0.5rem;
   background-color: var(--color-white);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -211,7 +214,8 @@
 
 .combined-exercise-card .image-column {
   min-width: 120px;
-  max-width: 180px; /* Tamanho consistente com outros cards */
+  max-width: 180px;
+  /* Tamanho consistente com outros cards */
 }
 
 /* Estilo para o cabeçalho dos exercícios combinados */

@@ -1,7 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
-import { Exercise } from '@domain/exercise.model';
 import { WeeklyWorkout, WorkoutDay } from '@domain/weekly-workout.model';
 
 @Component({
@@ -11,9 +10,12 @@ import { WeeklyWorkout, WorkoutDay } from '@domain/weekly-workout.model';
     templateUrl: './exercise-item.component.html',
     styleUrls: ['./exercise-item.component.css']
 })
-export class ExerciseItemComponent implements OnInit {
+export class ExerciseItemComponent implements OnInit, OnChanges {
+    
     @Input() weeklyWorkout!: WeeklyWorkout;
     @Input() accordionId!: string;
+    @Input() activeDay: string = 'monday';
+    
     workoutDays: WorkoutDay[] = [];
     showDetails = false;
     isCollapsed = true;
@@ -22,7 +24,22 @@ export class ExerciseItemComponent implements OnInit {
     private collapsedCombinedSets: Set<number> = new Set<number>();
 
     ngOnInit(): void {
+        this.setUpAccordionExercisesList();
+    }
+
+    setUpAccordionExercisesList() {
         this.setWorkoutDay();
+        this.collapseBasedOnSelectedDay();
+    }
+
+    ngOnChanges(changes: SimpleChanges): void {
+        if (changes['activeDay'] && !changes['activeDay'].firstChange) {
+            this.workoutDays = [];
+            this.setUpAccordionExercisesList();
+        }
+    }
+
+    private collapseBasedOnSelectedDay() {
         this.workoutDays.forEach((workoutDay, wdIndex) => {
             if (workoutDay.combinedExerciseSets) {
                 workoutDay.combinedExerciseSets.forEach((_, index) => {
@@ -33,7 +50,7 @@ export class ExerciseItemComponent implements OnInit {
     }
 
     setWorkoutDay() {
-        this.workoutDays.push(this.weeklyWorkout.monday);
+        this.workoutDays.push(this.weeklyWorkout[`${this.activeDay}`] as WorkoutDay);
     }
 
     toggleDetails(): void {

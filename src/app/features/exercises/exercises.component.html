@@ -25,7 +25,8 @@
             <div class="accordion" [id]="'accordion' + day.labelEn">
                 <app-exercise-item
                     [weeklyWorkout]="weeklyWorkout"
-                    [accordionId]="'accordion' + day.labelEn">
+                    [accordionId]="'accordion' + day.labelEn"
+                    [activeDay]="activeDay">
                 </app-exercise-item>
             </div>
         </div>
