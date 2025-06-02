@@ -213,7 +213,6 @@
 
 .combined-exercise-card {
   min-width: 300px;
-  /* max-width: 400px; */
   flex-shrink: 0;
   border-radius: 0.5rem;
   background-color: var(--color-white);
@@ -228,7 +227,6 @@
   font-size: 1rem;
   font-weight: 500;
   padding: 0.75rem 1rem 0.75rem;
-  border-bottom: 1px solid var(--color-secondary-dark);
   color: var(--color-primary-dark);
   text-align: center;
 }
@@ -360,4 +358,49 @@
 
 .combined-exercises-grid::-webkit-scrollbar-thumb:hover {
   background: #999;
+}
+
+/* Estilos para o container do checkbox */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  /* margin-right: 1rem; */
+}
+
+/* Estilos para o checkbox */
+.exercise-checkbox {
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+/* Estilos para a label do checkbox */
+.checkbox-label {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  cursor: pointer;
+}
+
+/* Estilos para o título do exercício */
+.exercise-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-primary-dark);
+}
+
+/* Estilos para o header do exercício */
+.exercise-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Ajustes para responsividade */
+@media (max-width: 768px) {
+  .checkbox-label {
+    font-size: 0.85rem;
+  }
+
+  .exercise-title {
+    font-size: 0.95rem;
+  }
 }

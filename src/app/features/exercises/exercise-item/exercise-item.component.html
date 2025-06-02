@@ -4,7 +4,13 @@
             <button class="accordion-button" [class.collapsed]="isExerciseCollapsed(exercise.id)" type="button"
                 (click)="toggleCollapse(exercise.id)" [attr.aria-expanded]="!isExerciseCollapsed(exercise.id)"
                 [attr.aria-controls]="'collapse' + exercise.id">
-                {{ exercise.title }}
+                <div class="exercise-header">
+                    <div class="checkbox-container">
+                        <input type="checkbox" class="exercise-checkbox" id="exercise-checkbox-{{exercise.id}}" />
+                        <label for="exercise-checkbox-{{exercise.id}}" class="checkbox-label"></label>
+                    </div>
+                    <span class="exercise-title">{{ exercise.title }}</span>
+                </div>
             </button>
         </h2>
         <div [id]="'collapse' + exercise.id" [ngbCollapse]="isExerciseCollapsed(exercise.id)" class="accordion-collapse"
