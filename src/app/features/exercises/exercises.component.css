@@ -57,8 +57,6 @@
 .nav-pills .nav-link.active {
   background-color: var(--color-white);
   color: var(--color-primary);
-  /* border: 1px solid var(--color-primary);
-  box-shadow: 0 2px 5px rgba(13, 110, 253, 0.15); */
 }
 
 /* Indicador sutil para o item ativo */
@@ -98,13 +96,15 @@
   }
   
   .nav-pills .nav-item {
-    flex: 0 0 auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: content;
+    justify-items: center;
     width: auto;
   }
   
   .nav-pills .nav-link {
     padding: 0.65rem 0.6rem;
-    min-width: 4rem;
   }
   
   .nav-pills .nav-link::after {
