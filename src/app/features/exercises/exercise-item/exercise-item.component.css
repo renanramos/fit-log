@@ -195,7 +195,7 @@
 }
 
 .combined-set .accordion-button {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .execution-type {
@@ -241,8 +241,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
   padding: 1rem;
+  max-width: 300px;
+  max-height: 500px;
 }
 
 /* Ajustes para imagens em exercícios combinados */
@@ -269,6 +270,7 @@
   .combined-set .accordion-button {
     font-size: 0.95rem;
     padding: 0.75rem;
+    font-weight: 500;
   }
 
   .execution-type {
@@ -301,6 +303,7 @@
   .combined-set .accordion-button {
     font-size: 0.9rem;
     padding: 0.6rem;
+    font-weight: 500;
   }
 
   .combined-exercise-card {
@@ -393,8 +396,7 @@
 /* Estilos para o título do exercício */
 .exercise-title {
   font-size: 1rem;
-  font-weight: 600;
-  /* color: var(--color-primary-dark); */
+  font-weight: 500;
 }
 
 /* Estilo para o botão do accordion quando o exercício está completo */
@@ -432,5 +434,6 @@
 
   .exercise-title {
     font-size: 0.95rem;
+    font-weight: 500;
   }
 }

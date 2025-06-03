@@ -6,7 +6,7 @@ const workout: WeeklyWorkout = {
       {
         id: "SupinoReto",
         title: "Banco Supino Reto",
-        image: "./assets/supino-reto.gif",
+        image: "./assets/monday/supino-reto.gif",
         details: {
           weight: "20kg",
           interval: "50 segundos",
@@ -16,7 +16,7 @@ const workout: WeeklyWorkout = {
       {
         id: "SupinoRetoInclinado",
         title: "Banco Supino Inclinado",
-        image: "./assets/supino-inclinado.gif",
+        image: "./assets/monday/supino-inclinado.gif",
         details: {
           weight: "17kg",
           interval: "50 segundos",
@@ -26,7 +26,7 @@ const workout: WeeklyWorkout = {
       {
         id: "PeckDeck",
         title: "Peck Deck",
-        image: "./assets/peck-deck.gif",
+        image: "./assets/monday/peck-deck.gif",
         details: {
           weight: "35kg - 40kg - 45kg",
           interval: "50 segundos",
@@ -40,7 +40,7 @@ const workout: WeeklyWorkout = {
       {
         id: "TricepsCorda",
         title: "Tríceps na Polia com Corda",
-        image: "./assets/triceps-corda.gif",
+        image: "./assets/monday/triceps-corda.gif",
         details: {
           weight: "40kg - 35kg",
           interval: "50 segundos",
@@ -54,7 +54,7 @@ const workout: WeeklyWorkout = {
       {
         id: "ElevacaoFrontalLateral",
         title: "Elevacao Frontal + Lateral",
-        image: "https://placehold.co/300x200",
+        image: "./assets/monday/elevacao-front-lateral.gif",
         details: {
           weight: "9kg",
           interval: "50 segundos",
@@ -68,16 +68,17 @@ const workout: WeeklyWorkout = {
         {
           id: "TricepsPoliaBarraW",
           title: "Triceps na Polia Barra W",
-          image: "./assets/triceps-polia-barra-w.gif",
+          image: "./assets/monday/triceps-polia-barra-w.gif",
           details: {
             weight: "35kg ou 40Kg",
+            interval: "50 segundos",
             set: "3 x 12 - 15"
           }
         },
         {
           id: "TricepsBancoPernasDobradas",
           title: "Triceps Banco com Perna Dobradas",
-          image: "./assets/triceps-no-banco.gif",
+          image: "./assets/monday/triceps-no-banco.gif",
           details: {
             weight: "0kg",
             interval: "50 segundos",
@@ -92,7 +93,7 @@ const workout: WeeklyWorkout = {
         {
           id: "DesenvolvimentoHalteres",
           title: "Desenvolvimento com Halteres (Pegada Neutra)",
-          image: "https://placehold.co/300x200",
+          image: "./assets/monday/desenvolvimento-halteres-pegada-neutra.gif",
           details: {
             weight: "6kg ou 7Kg",
             set: "3 x 12 - 15"
@@ -101,7 +102,7 @@ const workout: WeeklyWorkout = {
         {
           id: "AbdominalSupraSolo",
           title: "Abdominal Supra Solo",
-          image: "https://placehold.co/300x200",
+          image: "./assets/monday/abdominal-no-solo.gif",
           details: {
             weight: "0kg",
             interval: "50 segundos",
@@ -116,7 +117,7 @@ const workout: WeeklyWorkout = {
       {
         id: "PuxadaAbertaBarraReta",
         title: "Puxada Aberta Barra",
-        image: "https://placehold.co/300x200",
+        image: "./assets/tuesday/puxada-aberta-barra.gif",
         details: {
           weight: "35Kg - 40Kg",
           set: "3 x 12 - 15",
@@ -126,7 +127,7 @@ const workout: WeeklyWorkout = {
       {
         id: "RemadaArticulada",
         title: "Remada Articulada (pegada neutra)",
-        image: "https://placehold.co/300x200",
+        image: "./assets/tuesday/remada-articulada-neutra.gif",
         details: {
           weight: "10Kg - 415Kg",
           set: "3 x 10 - 12",
@@ -136,7 +137,7 @@ const workout: WeeklyWorkout = {
       {
         id: "PuxadaNeutraTriangulo",
         title: "Puxada Neutra Triangulo",
-        image: "https://placehold.co/300x200",
+        image: "./assets/tuesday/puxada-neutra-triangulo.gif",
         details: {
           weight: "30kg - 35kg - 40kg",
           set: "3 x 10 - 12 - 15",
@@ -150,7 +151,7 @@ const workout: WeeklyWorkout = {
       {
         id: "RoscaDiretaBarraReta",
         title: "Rosca Direta Barra Reta",
-        image: "https://placehold.co/300x200",
+        image: "./assets/tuesday/rosca-direta.gif",
         details: {
           weight: "8Kg",
           set: "3 x 10 - 12",
@@ -160,7 +161,7 @@ const workout: WeeklyWorkout = {
       {
         id: "RemadaAltaPoliaBaixaBarraReta",
         title: "Remada Alta na Polia Baixa com Barra Reta",
-        image: "https://placehold.co/300x200",
+        image: "./assets/tuesday/remada-alta-polia-baixa-barra-reta.gif",
         details: {
           weight: "40Kg",
           set: "3 x 15",
@@ -174,16 +175,17 @@ const workout: WeeklyWorkout = {
         {
           id: "RemadaUnilateralHalteres",
           title: "Remada Unilateral Halteres - Pegada Neutra (Serrote)",
-          image: "https://placehold.co/300x200",
+          image: "./assets/tuesday/remada-unilateral-serrote.gif",
           details: {
             weight: "35kg ou 40Kg",
+            interval: "50 segundos",
             set: "3 x 12 - 15"
           }
         },
         {
           id: "AbdominalPrancha",
           title: "Abdominal Prancha Isométrica",
-          image: "https://placehold.co/300x200",
+          image: "./assets/tuesday/abdominal-prancha-isometrica.gif",
           details: {
             weight: "0kg",
             interval: "50 segundos",
@@ -198,7 +200,7 @@ const workout: WeeklyWorkout = {
         {
           id: "RoscaAlternadaHalteres",
           title: "Rosca Alternada com Halteres",
-          image: "https://placehold.co/300x200",
+          image: "./assets/tuesday/rosca-alternada-halteres.gif",
           details: {
             weight: "12Kg",
             set: "3 x 10"
@@ -207,7 +209,7 @@ const workout: WeeklyWorkout = {
         {
           id: "RoscaMarteloHalteres",
           title: "Rosca Martelo com Halteres",
-          image: "https://placehold.co/300x200",
+          image: "./assets/tuesday/rosca-martelo-halteres.gif",
           details: {
             weight: "10kg",
             interval: "50 segundos",
@@ -222,7 +224,7 @@ const workout: WeeklyWorkout = {
       {
         id: "MobilidadeTornozeloSemiAjoelhado",
         title: "Mobilidade de Tornozelo Semi Ajoelhado",
-        image: "https://placehold.co/300x200",
+        image: "./assets/wednesday/mobilidade-tornozelo-semi-ajoelhado.gif",
         details: {
           set: "3 x 20 repetições",
           weight: "0Kg",
@@ -232,7 +234,7 @@ const workout: WeeklyWorkout = {
       {
         id: "AlongamentoPosterior",
         title: "Alongamento de Posterior I",
-        image: "https://placehold.co/300x200",
+        image: "./assets/wednesday/alongamento-posterior-de-coxa.gif",
         details: {
           set: "3 x 30 segundos",
           weight: "0Kg",
@@ -242,7 +244,7 @@ const workout: WeeklyWorkout = {
       {
         id: "CadeiraExtensoraUnilateral",
         title: "Cadeira Extensora Unilateral",
-        image: "https://placehold.co/300x200",
+        image: "./assets/wednesday/cadeira-extensora-unilateral.gif",
         details: {
           set: "3 x 15",
           weight: "20Kg - 25Kg",
@@ -252,7 +254,7 @@ const workout: WeeklyWorkout = {
       {
         id: "AgachamentoLivreBarraSuporte",
         title: "Agachamento Livre com Barra no Suporte",
-        image: "https://placehold.co/300x200",
+        image: "./assets/wednesday/agachamento-livre-com-barra.gif",
         details: {
           set: "3 x 10 - 12",
           weight: "17Kg",
@@ -262,7 +264,7 @@ const workout: WeeklyWorkout = {
       {
         id: "LegPress",
         title: "Leg Press 45",
-        image: "https://placehold.co/300x200",
+        image: "./assets/wednesday/leg-press-45.gif",
         details: {
           set: "3 x 15",
           weight: "160Kg",
@@ -272,7 +274,7 @@ const workout: WeeklyWorkout = {
       {
         id: "AfundoHalteres",
         title: "Afundo com Halteres",
-        image: "https://placehold.co/300x200",
+        image: "./assets/wednesday/afundo-com-halteres.gif",
         details: {
           set: "3 x 10",
           weight: "8Kg",
@@ -282,7 +284,7 @@ const workout: WeeklyWorkout = {
       {
         id: "AducaoQuadrilMaquina",
         title: "Adução de Quadril Máquina",
-        image: "https://placehold.co/300x200",
+        image: "./assets/wednesday/abducao-maquina.gif",
         details: {
           set: "3 x 12 - 15",
           weight: "30Kg",
@@ -292,7 +294,7 @@ const workout: WeeklyWorkout = {
       {
         id: "ElevacaoQuadrilMaquina",
         title: "Elevação de Quadril na Máquina",
-        image: "https://placehold.co/300x200",
+        image: "./assets/wednesday/elevacao-quadril-maquina.gif",
         details: {
           set: "3 x 12",
           weight: "50Kg",
@@ -302,7 +304,7 @@ const workout: WeeklyWorkout = {
       {
         id: "MesaFlexora",
         title: "Mesa Flexora",
-        image: "https://placehold.co/300x200",
+        image: "./assets/wednesday/cadeira-flexora.gif",
         details: {
           set: "3 x 15",
           weight: "20Kg",
@@ -312,7 +314,7 @@ const workout: WeeklyWorkout = {
       {
         id: "PanturrilhaSentadaMaquina",
         title: "Panturrilha Sentada Maquina",
-        image: "https://placehold.co/300x200",
+        image: "./assets/wednesday/panturrilha-sentada-maquina.gif",
         details: {
           set: "3 x 20",
           weight: "20Kg",
@@ -326,7 +328,7 @@ const workout: WeeklyWorkout = {
       {
         id: "SupinoRetoArticulado",
         title: "Supino Reto Articulado",
-        image: "https://placehold.co/300x200",
+        image: "./assets/thursday/supino-reto-articulado.gif",
         details: {
           set: "3 x 8 - 10",
           weight: "25Kg",
@@ -336,8 +338,8 @@ const workout: WeeklyWorkout = {
       },
       {
         id: "CrucificoInclinadoHalteres",
-        title: "Crucifico Inclinado com Halteres",
-        image: "https://placehold.co/300x200",
+        title: "Crucifixo Inclinado com Halteres",
+        image: "./assets/thursday/crucifixo-inclinado-halteres.gif",
         details: {
           set: "3 x 10",
           weight: "17Kg",
@@ -348,7 +350,7 @@ const workout: WeeklyWorkout = {
       {
         id: "CrossoverPoliaBaixa",
         title: "Crossover Polia Baixa",
-        image: "https://placehold.co/300x200",
+        image: "./assets/thursday/crossover-polia-baixa.gif",
         details: {
           set: "3 x 10 - 12",
           weight: "5Kg - 10Kg",
@@ -358,7 +360,7 @@ const workout: WeeklyWorkout = {
       {
         id: "TricepsTestaPoliaBarraReta",
         title: "Triceps Testa na Polia com Barra Reta",
-        image: "https://placehold.co/300x200",
+        image: "./assets/thursday/triceps-testa-polia.gif",
         details: {
           set: "3 x 12 - 15",
           weight: "40Kg",
@@ -368,7 +370,7 @@ const workout: WeeklyWorkout = {
       {
         id: "TricepsCoiceHalteres",
         title: "Triceps Coice com Halteres",
-        image: "https://placehold.co/300x200",
+        image: "./assets/thursday/triceps-coice-halteres.gif",
         details: {
           set: "3 x 10 - 12",
           weight: "10Kg",
@@ -378,7 +380,7 @@ const workout: WeeklyWorkout = {
       {
         id: "DesenvolvimentoArnoldSentado",
         title: "Desenvolvimento Arnold Sentado",
-        image: "https://placehold.co/300x200",
+        image: "./assets/thursday/desenvolvimento-arnold.gif",
         details: {
           set: "3 x 12 - 15",
           weight: "7Kg",
@@ -388,7 +390,7 @@ const workout: WeeklyWorkout = {
       {
         id: "ElevacaoLateralHalteres",
         title: "Elevação Lateral com Halteres",
-        image: "https://placehold.co/300x200",
+        image: "./assets/thursday/elevacao-lateral-com-halteres.gif",
         details: {
           set: "3 x 8 - 15",
           weight: "5Kg - 8Kg",
@@ -406,7 +408,7 @@ const workout: WeeklyWorkout = {
       {
         id: "PuxadaUnilateral",
         title: "Puxada Unilateral",
-        image: "https://placehold.co/300x200",
+        image: "./assets/friday/puxada-unilateral.gif",
         details: {
           set: "3 x 15",
           weight: "15Kg - 20Kg",
@@ -416,7 +418,7 @@ const workout: WeeklyWorkout = {
       {
         id: "PuxadaNeutraBarraH",
         title: "Puxada Neutra Barra H",
-        image: "https://placehold.co/300x200",
+        image: "./assets/friday/puxada-neutra-barra-h.gif",
         details: {
           set: "3 x 8 - 10",
           weight: "40Kg",
@@ -426,7 +428,7 @@ const workout: WeeklyWorkout = {
       {
         id: "RemadaCurvadaBarraReta",
         title: "Remada Curvada com Barra Reta (Pegada Supinada)",
-        image: "https://placehold.co/300x200",
+        image: "./assets/friday/remada-curvada-barra-reta.gif",
         details: {
           set: "3 x 10 - 12",
           weight: "10Kg - 15Kg",
@@ -436,7 +438,7 @@ const workout: WeeklyWorkout = {
       {
         id: "PulldownCorda",
         title: "Pulldown com Corda",
-        image: "https://placehold.co/300x200",
+        image: "./assets/friday/pulldown-com-corda.gif",
         details: {
           set: "3 x 10 - 12",
           weight: "40Kg",
@@ -446,7 +448,7 @@ const workout: WeeklyWorkout = {
       {
         id: "RoscaDireta21BarraW",
         title: "Rosca Direta 21 Barra W",
-        image: "https://placehold.co/300x200",
+        image: "./assets/friday/rosca-direta-21-barra-w.gif",
         details: {
           set: "3 x 7 - 7 - 7",
           weight: "8Kg",
@@ -456,7 +458,7 @@ const workout: WeeklyWorkout = {
       {
         id: "RoscaConcentrada",
         title: "Rosca Concentrada",
-        image: "https://placehold.co/300x200",
+        image: "./assets/friday/rosca-concentrada.gif",
         details: {
           set: "3 x 12",
           weight: "6Kg",
@@ -466,7 +468,7 @@ const workout: WeeklyWorkout = {
       {
         id: "RoscaMarteloSentadoAlternadoHalteres",
         title: "Rosca Martelo Sentado Alternado com Halteres",
-        image: "https://placehold.co/300x200",
+        image: "./assets/friday/rosca-martelo-sentado-alternado-halteres.gif",
         details: {
           set: "3 x 10",
           weight: "12Kg",
@@ -476,7 +478,7 @@ const workout: WeeklyWorkout = {
       {
         id: "EncolhimentoOmbrosHalteres",
         title: "Encolhimento de Ombros com Halteres",
-        image: "https://placehold.co/300x200",
+        image: "./assets/friday/encolhimento-de-ombros.gif",
         details: {
           set: "3 x 10",
           weight: "20Kg",
