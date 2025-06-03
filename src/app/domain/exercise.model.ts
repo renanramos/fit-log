@@ -18,5 +18,6 @@ export interface Exercise {
     combinedWith?: {
         exercise: Omit<Exercise, 'combinedWith'>; // Evita recursão infinita
         executionType: 'alternating' | 'sequential' | 'superset';
-    }
+    },
+    completed?: boolean;
 }

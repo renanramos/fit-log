@@ -58,12 +58,12 @@
 }
 
 .exercise__details li {
-    font-size: 0.8rem;
-    line-height: 1.5;
-    color: var(--color-text-light);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--color-text-light);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .exercise__details li:last-child {
@@ -187,7 +187,6 @@
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  /* Melhor rolagem em dispositivos iOS */
 }
 
 .combined-set .accordion-button {
@@ -224,11 +223,9 @@
 }
 
 .exercise-header {
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 0.75rem 1rem 0.75rem;
-  color: var(--color-primary-dark);
-  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .exercise-content {
@@ -245,7 +242,6 @@
 
 /* Ajustes para imagens em exercícios combinados */
 .combined-exercise-card .image-wrapper {
-  height: 180px;
   display: flex;
   justify-content: end;
   align-items: center;
@@ -260,7 +256,6 @@
 }
 
 .combined-exercise-card .exercise__image {
-  max-height: 180px;
   border-radius: 0.5rem;
 }
 
@@ -283,15 +278,6 @@
   .exercise-header {
     font-size: 1rem;
     padding: 0.6rem 0.75rem;
-  }
-
-  .combined-exercise-card .image-wrapper {
-    height: 100%;
-    /* Altura menor para móveis */
-  }
-
-  .combined-exercise-card .exercise__image {
-    max-height: 100%;
   }
 
   .combined-exercise-card .exercise__details {
@@ -319,27 +305,6 @@
   .exercise-header {
     font-size: 0.95rem;
   }
-
-  .combined-exercise-card .image-wrapper {
-    height: 140px;
-  }
-
-  .combined-exercise-card .exercise__image {
-    max-height: 100%;
-  }
-
-  .combined-exercise-card .exercise__details li {
-    padding: 0.35rem 0;
-  }
-
-  .combined-exercise-card .technique-label {
-    font-size: 0.85rem;
-  }
-
-  .combined-exercise-card .technique-description {
-    font-size: 0.8rem;
-    padding-left: 0.5rem;
-  }
 }
 
 /* Melhoria na rolagem horizontal */
@@ -364,39 +329,99 @@
 .checkbox-container {
   display: flex;
   align-items: center;
-  /* margin-right: 1rem; */
+  margin-right: 1rem;
 }
 
-/* Estilos para o checkbox */
+/* Esconder o checkbox padrão */
 .exercise-checkbox {
-  margin-right: 0.5rem;
+  opacity: 0;
+  position: absolute;
   cursor: pointer;
 }
 
-/* Estilos para a label do checkbox */
-.checkbox-label {
+/* Estilo para o checkbox personalizado */
+.checkbox-custom {
+  display: inline-block;
+  width: .8rem;
+  height: .8rem;
+  background: #fff;
+  border: 2px solid var(--color-primary);
+  border-radius: 4px;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Criar o símbolo de check usando pseudo-elemento */
+.exercise-checkbox:checked+.checkbox-label .checkbox-custom::after {
+  content: '';
+  position: absolute;
+  top: 51%;       /* Posiciona no centro vertical */
+  left: 51%;      /* Posiciona no centro horizontal */
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: translate(-50%, -65%) rotate(45deg); /* Centraliza e depois aplica rotação */
+}
+
+/* Mudar a cor de fundo quando o checkbox estiver marcado */
+.exercise-checkbox:checked+.checkbox-label .checkbox-custom {
+  background: var(--color-primary);
+  animation: _ngcontent-ng-c1628222617_pulse 0.4s cubic-bezier(1, 0.35, 1, 1);
+}
+
+/* Estilo para o texto do checkbox */
+.checkbox-text {
   font-size: 0.9rem;
   color: var(--color-text-light);
-  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* Mudar a cor do texto quando o checkbox estiver marcado */
+.exercise-checkbox:checked+.checkbox-label .checkbox-text {
+  color: var(--color-primary);
+  font-weight: 600;
 }
 
 /* Estilos para o título do exercício */
 .exercise-title {
   font-size: 1rem;
-  font-weight: 500;
-  color: var(--color-primary-dark);
+  font-weight: 600;
+  /* color: var(--color-primary-dark); */
 }
 
-/* Estilos para o header do exercício */
-.exercise-header {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+/* Estilo para o botão do accordion quando o exercício está completo */
+.exercise-completed {
+  background-color: rgba(40, 167, 69, 0.1) !important;
+  border-left: 3px solid #28a745 !important;
+}
+
+/* Definição da animação de pulso */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Adicionando efeito de hover para o checkbox */
+.checkbox-label:hover .checkbox-custom {
+  border-color: var(--color-primary-dark);
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
 }
 
 /* Ajustes para responsividade */
 @media (max-width: 768px) {
-  .checkbox-label {
+  .checkbox-text {
     font-size: 0.85rem;
   }
 

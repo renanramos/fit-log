@@ -6,8 +6,11 @@
                 [attr.aria-controls]="'collapse' + exercise.id">
                 <div class="exercise-header">
                     <div class="checkbox-container">
-                        <input type="checkbox" class="exercise-checkbox" id="exercise-checkbox-{{exercise.id}}" />
-                        <label for="exercise-checkbox-{{exercise.id}}" class="checkbox-label"></label>
+                        <input type="checkbox" class="exercise-checkbox" id="exercise-checkbox-{{exercise.id}}"
+                            [checked]="exercise.completed" (change)="onCheckboxChange(exercise, $event)" />
+                        <label for="exercise-checkbox-{{exercise.id}}" class="checkbox-label">
+                            <span class="checkbox-custom"></span>
+                        </label>
                     </div>
                     <span class="exercise-title">{{ exercise.title }}</span>
                 </div>
@@ -60,88 +63,97 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Exercícios combinados -->
-<div *ngIf="workoutDay.combinedExerciseSets && workoutDay.combinedExerciseSets.length > 0">
-    <!-- <h3>Exercícios Combinados</h3> -->
-    <div *ngFor="let combinedSet of workoutDay.combinedExerciseSets; let i = index" class="combined-exercises-container">
-        <!-- Um único accordion por conjunto combinado -->
-        <div class="accordion-item combined-set">
-            <h2 class="accordion-header" [id]="'headingCombined' + i">
-                <button class="accordion-button" [class.collapsed]="isCombinedSetCollapsed(i)"
-                    type="button" (click)="toggleCombinedSetCollapse(i)"
-                    [attr.aria-expanded]="!isCombinedSetCollapsed(i)"
-                    [attr.aria-controls]="'collapseCombined' + i">
-                    {{ combinedSet.name || 'Conjunto combinado ' + (i+1) }} - 
-                    <span class="execution-type ms-2">
-                        {{ combinedSet.executionType === 'alternating' ? 'Alternado' :
-                        combinedSet.executionType === 'superset' ? 'Superset' : 'Sequencial' }}
-                    </span>
-                </button>
-            </h2>
-            <div [id]="'collapseCombined' + i" [ngbCollapse]="isCombinedSetCollapsed(i)" 
-                class="accordion-collapse"
-                [attr.aria-labelledby]="'headingCombined' + i"
-                [attr.data-bs-parent]="'#' + accordionId">
-                <div class="accordion-body">
-                    <!-- Container para os exercícios combinados -->
-                    <div class="combined-exercises-grid">
-                        <!-- Loop pelos exercícios combinados dentro do mesmo accordion -->
-                        <div *ngFor="let combinedExercise of combinedSet.exercises" class="combined-exercise-card">
-                            <div class="exercise-header">
-                                {{ combinedExercise.title }}
-                            </div>
-                            <div class="exercise-content">
-                                <div class="row align-items-stretch exercise-row">
-                                    <!-- Descrição -->
-                                    <div class="col-12 col-lg-6 description-col">
-                                        <div class="card__description h-100">
-                                            <h5 class="exercise__title">Detalhes do Exercício</h5>
-                                            <ul class="exercise__details">
-                                                <li *ngIf="combinedExercise.details.weight">
-                                                    <i class="fas fa-dumbbell"></i> Carga:
-                                                    <strong>{{ combinedExercise.details.weight }}</strong>
-                                                </li>
-                                                <li *ngIf="combinedExercise.details.interval">
-                                                    <i class="fas fa-stopwatch"></i> Intervalo: 
-                                                    <strong>{{ combinedExercise.details.interval }}</strong>
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-check-circle"></i> Série:
-                                                    <strong>{{ combinedExercise.details.set }}</strong>
-                                                </li>
-                                                <ng-container *ngIf="combinedExercise.details.technique">
-                                                    <div class="special-technique">
-                                                        <div class="technique-label"
-                                                            *ngIf="combinedExercise.details.technique.type === 'pyramid'">
-                                                            <i class="fas fa-chart-line"></i> Pirâmide crescente:
-                                                        </div>
-                                                        <div class="technique-label"
-                                                            *ngIf="combinedExercise.details.technique.type === 'dropset'">
-                                                            <i class="fas fa-arrow-down"></i> Drop Set:
-                                                        </div>
-                                                        <div class="technique-description">
-                                                            {{ combinedExercise.details.technique.description }}
-                                                        </div>
-                                                    </div>
-                                                </ng-container>
-                                            </ul>
-                                        </div>
+    <div *ngIf="workoutDay.combinedExerciseSets && workoutDay.combinedExerciseSets.length > 0">
+        <!-- <h3>Exercícios Combinados</h3> -->
+        <div *ngFor="let combinedSet of workoutDay.combinedExerciseSets; let i = index"
+            class="combined-exercises-container">
+            <!-- Um único accordion por conjunto combinado -->
+            <div class="accordion-item combined-set">
+                <h2 class="accordion-header" [id]="'headingCombined' + i">
+                    <button class="accordion-button" [class.collapsed]="isCombinedSetCollapsed(i)" type="button"
+                        (click)="toggleCombinedSetCollapse(i)" [attr.aria-expanded]="!isCombinedSetCollapsed(i)"
+                        [attr.aria-controls]="'collapseCombined' + i">
+                        {{ combinedSet.name || 'Conjunto combinado ' + (i+1) }} -
+                        <span class="execution-type ms-2">
+                            [ {{ combinedSet.executionType === 'alternating' ? 'Alternado' :
+                            combinedSet.executionType === 'superset' ? 'Superset' : 'Sequencial' }} ]
+                        </span>
+                    </button>
+                </h2>
+                <div [id]="'collapseCombined' + i" [ngbCollapse]="isCombinedSetCollapsed(i)" class="accordion-collapse"
+                    [attr.aria-labelledby]="'headingCombined' + i" [attr.data-bs-parent]="'#' + accordionId">
+                    <!-- <div class="accordion-body"> -->
+                        <!-- Container para os exercícios combinados -->
+                        <div class="combined-exercises-grid">
+                            <!-- Loop pelos exercícios combinados dentro do mesmo accordion -->
+                            <div *ngFor="let combinedExercise of combinedSet.exercises" class="combined-exercise-card">
+                                <div class="exercise-header">
+                                    <div class="checkbox-container">
+                                        <input type="checkbox" class="exercise-checkbox"
+                                            id="exercise-checkbox-{{combinedExercise.id}}"
+                                            [checked]="combinedExercise.completed"
+                                            (change)="onCheckboxChange(combinedExercise, $event)" />
+                                        <label for="exercise-checkbox-{{combinedExercise.id}}" class="checkbox-label">
+                                            <span class="checkbox-custom"></span>
+                                        </label>
                                     </div>
-                                    <!-- Imagem -->
-                                    <div class="col-12 col-lg-6 image-col">
-                                        <div class="image-wrapper">
-                                            <img class="img-fluid exercise__image" [src]="combinedExercise.image" 
-                                                [alt]="combinedExercise.title">
+                                    <span class="exercise-title">{{ combinedExercise.title }}</span>
+                                </div>
+                                <!-- <div class="exercise-content"> -->
+                                <div class="accordion-body">
+                                    <!-- Descrição -->
+                                    <div class="row align-items-stretch exercise-row">
+                                        <div class="col-12 col-lg-6 description-col">
+                                            <div class="card__description h-100">
+                                                <h5 class="exercise__title">Detalhes do Exercício</h5>
+                                                <ul class="exercise__details">
+                                                    <li *ngIf="combinedExercise.details.weight">
+                                                        <i class="fas fa-dumbbell"></i> Carga:
+                                                        <strong>{{ combinedExercise.details.weight }}</strong>
+                                                    </li>
+                                                    <li *ngIf="combinedExercise.details.interval">
+                                                        <i class="fas fa-stopwatch"></i> Intervalo:
+                                                        <strong>{{ combinedExercise.details.interval }}</strong>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-check-circle"></i> Série:
+                                                        <strong>{{ combinedExercise.details.set }}</strong>
+                                                    </li>
+                                                    <ng-container *ngIf="combinedExercise.details.technique">
+                                                        <div class="special-technique">
+                                                            <div class="technique-label"
+                                                                *ngIf="combinedExercise.details.technique.type === 'pyramid'">
+                                                                <i class="fas fa-chart-line"></i> Pirâmide crescente:
+                                                            </div>
+                                                            <div class="technique-label"
+                                                                *ngIf="combinedExercise.details.technique.type === 'dropset'">
+                                                                <i class="fas fa-arrow-down"></i> Drop Set:
+                                                            </div>
+                                                            <div class="technique-description">
+                                                                {{ combinedExercise.details.technique.description }}
+                                                            </div>
+                                                        </div>
+                                                    </ng-container>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- Imagem -->
+                                        <div class="col-12 col-lg-6 image-col">
+                                            <div class="image-wrapper">
+                                                <img class="img-fluid exercise__image" [src]="combinedExercise.image"
+                                                    [alt]="combinedExercise.title">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <!-- </div> -->
                 </div>
             </div>
         </div>
     </div>
 </div>
-</div>
+<!-- </div> -->

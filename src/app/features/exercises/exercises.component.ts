@@ -16,11 +16,11 @@ export class ExercisesComponent {
     weeklyWorkout: WeeklyWorkout = workout;
 
     weekDays = [
-        { value: 'monday', label: 'Segunda', labelEn: 'Monday' },
-        { value: 'tuesday', label: 'Terça', labelEn: 'Tuesday' },
-        { value: 'wednesday', label: 'Quarta', labelEn: 'Wednesday' },
-        { value: 'thursday', label: 'Quinta', labelEn: 'Thursday' },
-        { value: 'friday', label: 'Sexta', labelEn: 'Friday' }
+        { value: 'monday', label: 'SEG', labelEn: 'Monday' },
+        { value: 'tuesday', label: 'TER', labelEn: 'Tuesday' },
+        { value: 'wednesday', label: 'QUA', labelEn: 'Wednesday' },
+        { value: 'thursday', label: 'QUI', labelEn: 'Thursday' },
+        { value: 'friday', label: 'SEX', labelEn: 'Friday' }
     ];
 
     setActiveDay(day: string): void {

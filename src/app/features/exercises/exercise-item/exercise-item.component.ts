@@ -2,6 +2,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 import { CommonModule } from '@angular/common';
 import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
 import { WeeklyWorkout, WorkoutDay } from '@domain/weekly-workout.model';
+import { Exercise } from '@domain/exercise.model';
 
 @Component({
     selector: 'app-exercise-item',
@@ -11,11 +12,11 @@ import { WeeklyWorkout, WorkoutDay } from '@domain/weekly-workout.model';
     styleUrls: ['./exercise-item.component.css']
 })
 export class ExerciseItemComponent implements OnInit, OnChanges {
-    
+
     @Input() weeklyWorkout!: WeeklyWorkout;
     @Input() accordionId!: string;
     @Input() activeDay: string = 'monday';
-    
+
     workoutDays: WorkoutDay[] = [];
     showDetails = false;
     isCollapsed = true;
@@ -76,6 +77,11 @@ export class ExerciseItemComponent implements OnInit, OnChanges {
         } else {
             this.collapsedCombinedSets.add(index);
         }
+    }
+
+    onCheckboxChange(exercise: Exercise, event: any): void {
+        exercise.completed = event.target.checked;
+        console.log(`Exercício ${exercise.title} está ${exercise.completed ? 'concluído' : 'pendente'}`);
     }
 }
 
