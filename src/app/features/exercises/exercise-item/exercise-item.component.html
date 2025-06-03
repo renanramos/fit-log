@@ -1,7 +1,10 @@
 <div class="exercises_progression">
     <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuemin="0" aria-valuemax="100">
       <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" [style.width]="percentCompleted + '%'">
-        {{percentCompleted | number:'1.0-0'}}%
+       <span *ngIf="percentCompleted != 100; else spanTreinoConcluido">{{percentCompleted | number:'1.0-0'}}%</span>
+       <ng-template #spanTreinoConcluido>
+            <span><i class="fa-regular fa-circle-check"></i> Treino concluído!</span>
+       </ng-template>
       </div>
     </div>
 </div>
