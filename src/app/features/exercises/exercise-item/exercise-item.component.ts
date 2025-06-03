@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
 import { WeeklyWorkout, WorkoutDay } from '@domain/weekly-workout.model';
 import { Exercise } from '@domain/exercise.model';
+import { CombinedExercise } from '@domain/combined-exercises.model';
 
 @Component({
     selector: 'app-exercise-item',
@@ -18,8 +19,13 @@ export class ExerciseItemComponent implements OnInit, OnChanges {
     @Input() activeDay: string = 'monday';
 
     workoutDays: WorkoutDay[] = [];
+    exercises: Exercise[] = [];
+    combinedExercises: CombinedExercise[] = [];
     showDetails = false;
     isCollapsed = true;
+    totalExercises = 0;
+    totalCompleted = 0;
+    percentCompleted = 0;
 
     private collapsedState: Map<string | number, boolean> = new Map();
     private collapsedCombinedSets: Set<number> = new Set<number>();
@@ -28,16 +34,19 @@ export class ExerciseItemComponent implements OnInit, OnChanges {
         this.setUpAccordionExercisesList();
     }
 
-    setUpAccordionExercisesList() {
-        this.setWorkoutDay();
-        this.collapseBasedOnSelectedDay();
-    }
-
     ngOnChanges(changes: SimpleChanges): void {
+        this.exercises = [];
+        this.combinedExercises = [];
         if (changes['activeDay'] && !changes['activeDay'].firstChange) {
             this.workoutDays = [];
             this.setUpAccordionExercisesList();
+            this.calculateExercisesPercentual();
         }
+    }
+
+    setUpAccordionExercisesList() {
+        this.setWorkoutDay();
+        this.collapseBasedOnSelectedDay();
     }
 
     private collapseBasedOnSelectedDay() {
@@ -51,7 +60,34 @@ export class ExerciseItemComponent implements OnInit, OnChanges {
     }
 
     setWorkoutDay() {
-        this.workoutDays.push(this.weeklyWorkout[`${this.activeDay}`] as WorkoutDay);
+        const workoutDay = this.weeklyWorkout[`${this.activeDay}`];
+        this.workoutDays.push(workoutDay as WorkoutDay);
+        this.exercises.push(...workoutDay?.exercises as Exercise[]);
+        if (workoutDay?.combinedExerciseSets) {
+            this.combinedExercises.push(...workoutDay?.combinedExerciseSets as CombinedExercise[]);
+        }
+    }
+
+    calculateTotalExercises(): number {
+        let totalExerciseCount = this.exercises.length;
+
+        // Contar exercícios dentro de conjuntos combinados
+        this.combinedExercises.forEach(combinedSet => totalExerciseCount += combinedSet.exercises.length);
+
+        return totalExerciseCount;
+    }
+
+    calculateExercisesPercentual(): void {
+        this.totalExercises = this.calculateTotalExercises();
+
+        const completedIndividualExercises = this.exercises.filter(exercise => exercise.completed).length;
+
+        let completedCombinedExercises = 0;
+        this.combinedExercises.forEach(combinedSet =>
+            completedCombinedExercises += combinedSet.exercises.filter(exercise => exercise.completed).length);
+
+        this.totalCompleted = completedIndividualExercises + completedCombinedExercises;
+        this.percentCompleted = this.totalExercises > 0 ? (this.totalCompleted / this.totalExercises) * 100 : 0;
     }
 
     toggleDetails(): void {
@@ -82,6 +118,7 @@ export class ExerciseItemComponent implements OnInit, OnChanges {
     onCheckboxChange(exercise: Exercise, event: any): void {
         exercise.completed = event.target.checked;
         console.log(`Exercício ${exercise.title} está ${exercise.completed ? 'concluído' : 'pendente'}`);
+        this.calculateExercisesPercentual();
     }
 }
 
