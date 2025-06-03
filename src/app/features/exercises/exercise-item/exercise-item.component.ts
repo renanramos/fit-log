@@ -117,7 +117,6 @@ export class ExerciseItemComponent implements OnInit, OnChanges {
 
     onCheckboxChange(exercise: Exercise, event: any): void {
         exercise.completed = event.target.checked;
-        console.log(`Exercício ${exercise.title} está ${exercise.completed ? 'concluído' : 'pendente'}`);
         this.calculateExercisesPercentual();
     }
 }

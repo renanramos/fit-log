@@ -1,3 +1,11 @@
+<div class="exercises_progression">
+    <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuemin="0" aria-valuemax="100">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" [style.width]="percentCompleted + '%'">
+        {{percentCompleted | number:'1.0-0'}}%
+      </div>
+    </div>
+</div>
+
 <div *ngFor="let workoutDay of workoutDays">
     <div class="accordion-item" *ngFor="let exercise of workoutDay.exercises">
         <h2 class="accordion-header" [id]="'heading' + exercise.id">
