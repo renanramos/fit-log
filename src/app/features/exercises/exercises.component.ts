@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import workout from '@domain/workout.const';
-import { WeeklyWorkout } from '@domain/weekly-workout.model';
 import { ExerciseItemComponent } from './exercise-item/exercise-item.component';
+import { WeekDays } from '@domain/weekdays.const';
+
+const FIRST_DAY_OF_WEEK = 0;
 
 @Component({
     selector: 'app-exercises',
@@ -12,18 +13,64 @@ import { ExerciseItemComponent } from './exercise-item/exercise-item.component';
     styleUrls: ['./exercises.component.css']
 })
 export class ExercisesComponent {
-    activeDay = 'monday';
-    weeklyWorkout: WeeklyWorkout = workout;
+    activeDay: any = 'monday';
+    selectedWeeklyDay: WeekDays;
 
-    weekDays = [
-        { value: 'monday', label: 'SEG', labelEn: 'Monday' },
-        { value: 'tuesday', label: 'TER', labelEn: 'Tuesday' },
-        { value: 'wednesday', label: 'QUA', labelEn: 'Wednesday' },
-        { value: 'thursday', label: 'QUI', labelEn: 'Thursday' },
-        { value: 'friday', label: 'SEX', labelEn: 'Friday' }
-    ];
+    weekDays: WeekDays[] = [];
+
+    constructor() {
+         this.initializeWeekDays();
+         this.selectedWeeklyDay = this.findWeekDayByActiveDay();
+    }
 
     setActiveDay(day: string): void {
         this.activeDay = day;
+        this.selectedWeeklyDay = this.findWeekDayByActiveDay();
+    }
+
+    get selectedDay() {
+      return  this.selectedWeeklyDay; 
+    }
+
+    get value() {
+        return this.selectedDay.value
+    }
+
+    get label () {
+        return this.selectedDay.label;
+    }
+    
+    get labelEn () {
+        return this.selectedDay.labelEn;
+    }
+    
+    getActiveDay(): WeekDays {
+        const weekDay = this.findWeekDayByActiveDay();
+
+        return weekDay;
+    }
+    
+    findWeekDayByActiveDay(): WeekDays {
+        const weekDay = this.weekDays.find(weekDay => weekDay.value === this.activeDay);
+        return weekDay ? weekDay : this.weekDays[FIRST_DAY_OF_WEEK]
+    }
+
+    getSelectedWeeklyDay() {
+        return this.selectedDay;
+    }
+
+    getSelectedWeeklyDayValue(weekDay: WeekDays) {
+        return weekDay.value
+    }
+
+    initializeWeekDays() {
+        this.weekDays = [
+            { value: 'monday', label: 'SEG', labelEn: 'Monday' },
+            { value: 'tuesday', label: 'TER', labelEn: 'Tuesday' },
+            { value: 'wednesday', label: 'QUA', labelEn: 'Wednesday' },
+            { value: 'thursday', label: 'QUI', labelEn: 'Thursday' },
+            { value: 'friday', label: 'SEX', labelEn: 'Friday' }
+        ];
     }
 }
+
