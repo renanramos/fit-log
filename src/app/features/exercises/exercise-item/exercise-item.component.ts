@@ -1,20 +1,20 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
 import { WeeklyWorkout, WorkoutDay } from '@domain/weekly-workout.model';
 import { Exercise } from '@domain/exercise.model';
 import { CombinedExercise } from '@domain/combined-exercises.model';
+import workout from '@domain/workout.const';
 
 @Component({
     selector: 'app-exercise-item',
     standalone: true,
-    imports: [CommonModule, NgbCollapse],
+    imports: [CommonModule],
     templateUrl: './exercise-item.component.html',
     styleUrls: ['./exercise-item.component.css']
 })
-export class ExerciseItemComponent implements OnInit, OnChanges {
+export class ExerciseItemComponent implements OnInit {
 
-    @Input() weeklyWorkout!: WeeklyWorkout;
+    weeklyWorkout: WeeklyWorkout = workout;
     @Input() accordionId!: string;
     @Input() activeDay: string = 'monday';
 
@@ -32,6 +32,7 @@ export class ExerciseItemComponent implements OnInit, OnChanges {
 
     ngOnInit(): void {
         this.setUpAccordionExercisesList();
+        console.log(this.activeDay)
     }
 
     ngOnChanges(changes: SimpleChanges): void {

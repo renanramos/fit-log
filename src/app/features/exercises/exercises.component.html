@@ -6,7 +6,7 @@
     <ul class="nav nav-pills mb-2 justify-content-center" id="weekTab" role="tablist">
         <li class="nav-item" role="presentation" *ngFor="let day of weekDays">
             <button class="nav-link"
-                [ngClass]="{'active': activeDay === day.value}"
+                [ngClass]="{'active': getActiveDay().value === day.value}"
                 [id]="day.value + '-tab'"
                 (click)="setActiveDay(day.value)"
                 type="button">
@@ -18,16 +18,14 @@
     <!-- Conteúdo dos tabs -->
     <div class="tab-content" id="weekTabContent">
         <div class="tab-pane fade"
-            *ngFor="let day of weekDays"
-            [ngClass]="{'show active': activeDay === day.value}"
-            [id]="day.value"
+            [ngClass]="{'show active': getActiveDay() === getSelectedWeeklyDay()}"
+            [id]="value"
             role="tabpanel"
-            [attr.aria-labelledby]="day.value + '-tab'">
-            <div class="accordion" [id]="'accordion' + day.labelEn">
+            [attr.aria-labelledby]="value + '-tab'">
+            <div class="accordion" [id]="'accordion' + labelEn">
                 <app-exercise-item
-                    [weeklyWorkout]="weeklyWorkout"
-                    [accordionId]="'accordion' + day.labelEn"
-                    [activeDay]="activeDay">
+                    [accordionId]="'accordion' + labelEn"
+                    [activeDay]="value">
                 </app-exercise-item>
             </div>
         </div>
