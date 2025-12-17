@@ -6,12 +6,11 @@ on:
       - master
   workflow_dispatch:
 
-permmissions:
-  contents: write
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permmissions:
+      contents: write
 
     steps:
       - name: Checkout
