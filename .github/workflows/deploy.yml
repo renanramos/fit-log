@@ -29,7 +29,7 @@ jobs:
         run: |
           git config --global user.email "renanrramossi@gmail.com"
           git config --global user.name "Renan Ramos"
-          git config --global url."https://x-access-token${{ secrets.GITHUB_TOKEN }}@githun.com/".insteadOf "https://github.com/"
+          git config --global url."https://x-access-token${{ secrets.GITHUB_TOKEN }}@github.com/".insteadOf "https://github.com/"
 
       - name: Install dependencies
         run: npm install

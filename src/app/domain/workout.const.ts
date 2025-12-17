@@ -153,7 +153,7 @@ const workout: WeeklyWorkout = {
         title: "Rosca Direta Barra Reta",
         image: "./assets/tuesday/rosca-direta.gif",
         details: {
-          weight: "8Kg",
+          weight: "10Kg",
           set: "3 x 10 - 12",
           interval: "50 segundos"
         }
