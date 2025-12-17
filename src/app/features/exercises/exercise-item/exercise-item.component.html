@@ -30,7 +30,7 @@
             </div>
         </button>
     </h2>
-    <div [id]="'collapse' + exercise.id" class="collapse" [class.show]="!isExerciseCollapsed(exercise.id)">
+    <div [id]="'collapse' + exercise.id" class="collapse" [class.show]="isExerciseCollapsed(exercise.id)">
         <div class="accordion-body">
             <div class="row align-items-stretch exercise-row">
                 <!-- Descrição -->
@@ -82,7 +82,7 @@
         <!-- Um único accordion por conjunto combinado -->
         <div class="accordion-item combined-set">
             <h2 class="accordion-header" [id]="'headingCombined' + i">
-                <button class="accordion-button" [class.collapsed]="isCombinedSetCollapsed(i)" type="button"
+                <button class="accordion-button" [class.collapsed]="!isCombinedSetCollapsed(i)" type="button"
                     (click)="toggleCombinedSetCollapse(i)" [attr.aria-expanded]="isCombinedSetCollapsed(i)"
                     [attr.data-target]="'#collapse' + i"
                     [attr.aria-controls]="'collapse' + i">
