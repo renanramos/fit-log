@@ -1,4 +1,4 @@
-// src/app/domain/exercise.model.ts
+
 export interface ExerciseDetails {
     weight?: string;
     interval?: string;
@@ -16,7 +16,7 @@ export interface Exercise {
     image: string;
     details: ExerciseDetails;
     combinedWith?: {
-        exercise: Omit<Exercise, 'combinedWith'>; // Evita recursão infinita
+        exercise: Omit<Exercise, 'combinedWith'>;
         executionType: 'alternating' | 'sequential' | 'superset';
     },
     completed?: boolean;

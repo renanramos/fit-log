@@ -32,9 +32,6 @@ jobs:
           git config --global user.email "renanrramossi@gmail.com"
           git config --global user.name "Renan Ramos"
 
-      - name: Setup credentials to access private repositories
-        run: git config --global url.https://${{ secrets.FITLOG_CI_CD }}@github.com/.insteadOf https://github.com/
-
       - name: Build Angular Application
         run: npm run deploy
       
