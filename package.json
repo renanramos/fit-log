@@ -10,7 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --configuration production --base-href=/fit-log/ && npx angular-cli-ghpages --dir=dist/fit-log"
+    "deploy": "ng build --configuration production --base-href=/fit-log/ && npx angular-cli-ghpages --dir=docs/"
   },
   "private": true,
   "dependencies": {
