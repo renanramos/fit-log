@@ -16,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          ssh_key: ${{ secrets.FITLOG_CI_CD }}
           fetch-depth: 0
 
       - name: Setup Node.js
@@ -45,4 +45,4 @@ jobs:
         run: |
           git add docs
           git diff --staged --quiet || git commit -m "Deploy: Update GitHub Pages content"
-          git push
+          git push origin HEAD
