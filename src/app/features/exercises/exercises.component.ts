@@ -34,7 +34,7 @@ export class ExercisesComponent {
     }
     
     setWorkoutDay() {
-        this.workoutDay = workout[this.activeDay];
+       this.workoutDay = workout[this.activeDay];
     }
 
     get selectedDay() {
