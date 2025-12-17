@@ -73,7 +73,6 @@ export class ExerciseItemComponent implements OnInit {
 
         // Contar exercícios dentro de conjuntos combinados
         this.combinedExercises.forEach(combinedSet => totalExerciseCount += combinedSet.exercises.length);
-
         return totalExerciseCount;
     }
 
