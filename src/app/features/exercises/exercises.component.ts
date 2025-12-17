@@ -38,15 +38,15 @@ export class ExercisesComponent {
     }
 
     get selectedDay() {
-      return  this.selectedWeeklyDay; 
+       return  this.selectedWeeklyDay; 
     }
 
     get value() {
-        return this.selectedDay.value
+       return this.selectedDay.value
     }
 
     get label () {
-        return this.selectedDay.label;
+       return this.selectedDay.label;
     }
     
     get labelEn () {
