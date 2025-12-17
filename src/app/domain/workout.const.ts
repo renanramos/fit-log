@@ -129,7 +129,7 @@ const workout: WeeklyWorkout = {
         title: "Remada Articulada (pegada neutra)",
         image: "./assets/tuesday/remada-articulada-neutra.gif",
         details: {
-          weight: "10Kg - 415Kg",
+          weight: "10Kg - 15Kg",
           set: "3 x 10 - 12",
           interval: "50 segundos"
         }
