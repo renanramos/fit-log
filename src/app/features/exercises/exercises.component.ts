@@ -15,6 +15,7 @@ const FIRST_DAY_OF_WEEK = 0;
     styleUrls: ['./exercises.component.css']
 })
 export class ExercisesComponent {
+    
     activeDay: any = 'monday';
     selectedWeeklyDay: WeekDays;
     workoutDay: any = workout[this.activeDay];
