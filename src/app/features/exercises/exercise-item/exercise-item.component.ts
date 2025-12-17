@@ -17,10 +17,11 @@ export class ExerciseItemComponent implements OnInit {
     weeklyWorkout: WeeklyWorkout = workout;
     @Input() accordionId!: string;
     @Input() activeDay: string = 'monday';
+    @Input() workoutDay?: WorkoutDay
 
     workoutDays: WorkoutDay[] = [];
-    exercises: Exercise[] = [];
-    combinedExercises: CombinedExercise[] = [];
+    exercises: Exercise[] = this.workoutDay?.exercises || [];
+    combinedExercises: CombinedExercise[] = this.workoutDay?.combinedExerciseSets || [];
     showDetails = false;
     isCollapsed = true;
     totalExercises = 0;
@@ -32,7 +33,6 @@ export class ExerciseItemComponent implements OnInit {
 
     ngOnInit(): void {
         this.setUpAccordionExercisesList();
-        console.log(this.activeDay)
     }
 
     ngOnChanges(changes: SimpleChanges): void {
@@ -50,7 +50,7 @@ export class ExerciseItemComponent implements OnInit {
         this.collapseBasedOnSelectedDay();
     }
 
-    private collapseBasedOnSelectedDay() {
+    collapseBasedOnSelectedDay() {
         this.workoutDays.forEach((workoutDay, wdIndex) => {
             if (workoutDay.combinedExerciseSets) {
                 workoutDay.combinedExerciseSets.forEach((_, index) => {
@@ -61,11 +61,10 @@ export class ExerciseItemComponent implements OnInit {
     }
 
     setWorkoutDay() {
-        const workoutDay = this.weeklyWorkout[`${this.activeDay}`];
-        this.workoutDays.push(workoutDay as WorkoutDay);
-        this.exercises.push(...workoutDay?.exercises as Exercise[]);
-        if (workoutDay?.combinedExerciseSets) {
-            this.combinedExercises.push(...workoutDay?.combinedExerciseSets as CombinedExercise[]);
+        this.workoutDays.push(this.workoutDay as WorkoutDay);
+        this.exercises.push(...this.workoutDay?.exercises as Exercise[]);
+        if (this.workoutDay?.combinedExerciseSets) {
+            this.combinedExercises.push(...this.workoutDay?.combinedExerciseSets as CombinedExercise[]);
         }
     }
 
@@ -91,17 +90,13 @@ export class ExerciseItemComponent implements OnInit {
         this.percentCompleted = this.totalExercises > 0 ? (this.totalCompleted / this.totalExercises) * 100 : 0;
     }
 
-    toggleDetails(): void {
-        this.showDetails = !this.showDetails;
-    }
-
-    isExerciseCollapsed(exerciseId: string | number): boolean {
-        return this.collapsedState.get(exerciseId) !== false;
-    }
-
     toggleCollapse(exerciseId: string | number): void {
         const currentState = this.isExerciseCollapsed(exerciseId);
         this.collapsedState.set(exerciseId, !currentState);
+    }
+
+    isExerciseCollapsed(exerciseId: string | number): boolean {
+        return this.collapsedState.has(exerciseId);
     }
 
     isCombinedSetCollapsed(index: number): boolean {
