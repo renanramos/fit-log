@@ -16,7 +16,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ssh_key: ${{ secrets.FITLOG_CI_CD }}
+          # ssh_key: ${{ secrets.FITLOG_CI_CD }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
       - name: Setup Node.js
@@ -39,7 +40,9 @@ jobs:
         run: touch docs/.nojekyll
 
       - name: Commit and Push to docs folder
+        env:
+          GITHUB_TOKEN : ${{ secrets.GITHUB_TOKEN }}
         run: |
           git add docs
           git diff --staged --quiet || git commit -m "Deploy: Update GitHub Pages content"
-          git push origin HEAD
+          git push

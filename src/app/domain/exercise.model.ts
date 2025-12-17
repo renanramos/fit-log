@@ -1,4 +1,3 @@
-
 export interface ExerciseDetails {
     weight?: string;
     interval?: string;
