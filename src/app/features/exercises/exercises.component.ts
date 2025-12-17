@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ExerciseItemComponent } from './exercise-item/exercise-item.component';
 import { WeekDays } from '@domain/weekdays.const';
-import { WeeklyWorkout } from '@domain/weekly-workout.model';
 import workout from '@domain/workout.const';
 
 const FIRST_DAY_OF_WEEK = 0;
