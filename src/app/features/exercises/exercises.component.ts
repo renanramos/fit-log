@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ExerciseItemComponent } from './exercise-item/exercise-item.component';
 import { WeekDays } from '@domain/weekdays.const';
+import { WeeklyWorkout } from '@domain/weekly-workout.model';
+import workout from '@domain/workout.const';
 
 const FIRST_DAY_OF_WEEK = 0;
 
@@ -15,6 +17,7 @@ const FIRST_DAY_OF_WEEK = 0;
 export class ExercisesComponent {
     activeDay: any = 'monday';
     selectedWeeklyDay: WeekDays;
+    workoutDay: any = workout[this.activeDay];
 
     weekDays: WeekDays[] = [];
 
@@ -26,6 +29,11 @@ export class ExercisesComponent {
     setActiveDay(day: string): void {
         this.activeDay = day;
         this.selectedWeeklyDay = this.findWeekDayByActiveDay();
+        this.setWorkoutDay();
+    }
+    
+    setWorkoutDay() {
+        this.workoutDay = workout[this.activeDay];
     }
 
     get selectedDay() {
