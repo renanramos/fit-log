@@ -53,9 +53,7 @@ export class ExercisesComponent {
     }
     
     getActiveDay(): WeekDays {
-        const weekDay = this.findWeekDayByActiveDay();
-
-        return weekDay;
+        return this.findWeekDayByActiveDay();;
     }
     
     findWeekDayByActiveDay(): WeekDays {
