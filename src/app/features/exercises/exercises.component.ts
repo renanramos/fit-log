@@ -18,6 +18,7 @@ export class ExercisesComponent {
     activeDay: any = 'monday';
     selectedWeeklyDay: WeekDays;
     workoutDay: any = workout[this.activeDay];
+    isWeekDaysTabDisabled: boolean = false;
 
     weekDays: WeekDays[] = [];
 
@@ -51,9 +52,13 @@ export class ExercisesComponent {
     get labelEn () {
         return this.selectedDay.labelEn;
     }
+
+    changeWeekDaysTabState(state: boolean) {
+        this.isWeekDaysTabDisabled = state;
+    }
     
     getActiveDay(): WeekDays {
-        return this.findWeekDayByActiveDay();;
+        return this.findWeekDayByActiveDay();
     }
     
     findWeekDayByActiveDay(): WeekDays {

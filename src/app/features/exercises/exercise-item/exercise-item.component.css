@@ -192,7 +192,6 @@
 .combined-set .accordion-button {
   font-weight: 500;
 }
-
 .execution-type {
   font-size: 0.9rem;
   color: var(--color-primary);
@@ -353,6 +352,19 @@
   position: relative;
   vertical-align: middle;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.checkbox-custom-disabled {
+  display: inline-block;
+  width: .8rem;
+  height: .8rem;
+  background: #fff;
+  cursor: default;
+  border: 2px solid #d1caca;
+  border-radius: 4px;
+  position: relative;
+  vertical-align: middle;
   transition: all 0.3s ease;
 }
 

@@ -1,0 +1,14 @@
+<div class="d-grid gap-2">
+    <div class="d-flex">
+        <button class="btn btn-success m-2 flex-grow-1 d-flex" (click)="iniciarContador()" >
+            <span>
+                {{ activateContador ? 'Finalizar' : 'Iniciar'}} treino
+            </span>
+            <span>
+                <i class="pe-1 fa-solid " [class]="{'fa-play': !activateContador, 'fa-stop': activateContador}"></i>
+                {{ formatarTempo(currentTime) }} {{ tempoFormatado$ | async }}
+            </span>
+        </button>
+
+    </div>
+</div>

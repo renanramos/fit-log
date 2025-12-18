@@ -1,27 +1,20 @@
-<div class="d-grid gap-2">
-    <div class="d-flex align-items-center">
-        <button class="btn btn-outline-success m-2 flex-grow-1" (click)="iniciarTreino()">{{ enableAccordions ? 'Finalizar' : 'Iniciar'}} treino</button>
-        <span *ngIf="enableAccordions" class="badge text-bg-secondary p-3 align-self-center">{{ currentTime }}</span>
-    </div>
-</div>
 
-<app-exercises-progress 
-        [combinedExercises]="combinedExercises" 
-        [exercises]="exercises"
-        ></app-exercises-progress>
+<app-contador (activateAccordions)="ativarAccordions($event)"></app-contador>
+
+<app-exercises-progress [combinedExercises]="combinedExercises" [exercises]="exercises" [isActivated]="activateExercises"></app-exercises-progress>
 
 <div class="accordion">
     <div class="accordion-item" *ngFor="let exercise of exercises">
         <h2 class="accordion-header" [id]="'heading' + exercise.id">
-            <button class="accordion-button" [disabled]="!enableAccordions" data-toggle="collapse" [class.collapsed]="isExerciseCollapsed(exercise.id)"
-                type="button" (click)="toggleCollapse(exercise.id)" [attr.data-target]="'#collapse' + exercise.id"
-                [attr.aria-expanded]="isExerciseCollapsed(exercise.id)" [attr.aria-controls]="'collapse' + exercise.id"
-                [style.color]="getAccordionsColors()">
+            <button class="accordion-button" [disabled]="!activateExercises" data-toggle="collapse"
+                [class.collapsed]="isExerciseCollapsed(exercise.id)" type="button" (click)="toggleCollapse(exercise.id)"
+                [attr.data-target]="'#collapse' + exercise.id" [attr.aria-expanded]="isExerciseCollapsed(exercise.id)"
+                [attr.aria-controls]="'collapse' + exercise.id" [style.color]="getAccordionsColors()">
                 <div class="exercise-header">
                     <div class="checkbox-container">
                         <input type="checkbox" class="exercise-checkbox" id="exercise-checkbox-{{exercise.id}}"
-                            [checked]="exercise.completed" (change)="onCheckboxChange(exercise, $event)" 
-                            [style.color]="getAccordionsColors()"/>
+                            [checked]="exercise.completed" (change)="onCheckboxChange(exercise, $event)"
+                            [style.color]="getAccordionsColors()" [disabled]="!activateExercises" />
                         <label for="exercise-checkbox-{{exercise.id}}" class="checkbox-label">
                             <span class="checkbox-custom"></span>
                         </label>
@@ -50,10 +43,12 @@
                                 </li>
                                 <ng-container *ngIf="exercise.details.technique">
                                     <div class="special-technique">
-                                        <div class="technique-label" *ngIf="exercise.details.technique.type === 'pyramid'">
+                                        <div class="technique-label"
+                                            *ngIf="exercise.details.technique.type === 'pyramid'">
                                             <i class="fas fa-chart-line"></i> Pirâmide crescente:
                                         </div>
-                                        <div class="technique-label" *ngIf="exercise.details.technique.type === 'dropset'">
+                                        <div class="technique-label"
+                                            *ngIf="exercise.details.technique.type === 'dropset'">
                                             <i class="fas fa-arrow-down"></i> Drop Set:
                                         </div>
                                         <div class="technique-description">
@@ -82,11 +77,10 @@
         <!-- Um único accordion por conjunto combinado -->
         <div class="accordion-item combined-set">
             <h2 class="accordion-header" [id]="'headingCombined' + i">
-                <button class="accordion-button" [disabled]="!enableAccordions" [class.collapsed]="!isCombinedSetCollapsed(i)" type="button"
-                    (click)="toggleCombinedSetCollapse(i)" [attr.aria-expanded]="isCombinedSetCollapsed(i)"
-                    [attr.data-target]="'#collapse' + i"
-                    [attr.aria-controls]="'collapse' + i"
-                    [style.color]="getAccordionsColors()">
+                <button class="accordion-button" [disabled]="!activateExercises"
+                    [class.collapsed]="!isCombinedSetCollapsed(i)" type="button" (click)="toggleCombinedSetCollapse(i)"
+                    [attr.aria-expanded]="isCombinedSetCollapsed(i)" [attr.data-target]="'#collapse' + i"
+                    [attr.aria-controls]="'collapse' + i" [style.color]="getAccordionsColors()">
                     {{ combinedSet.name || 'Conjunto combinado ' + (i+1) }} -
                     <span class="execution-type ms-2">
                         [ {{ combinedSet.executionType === 'alternating' ? 'Alternado' :
@@ -104,8 +98,8 @@
                                 <input type="checkbox" class="exercise-checkbox"
                                     id="exercise-checkbox-{{combinedExercise.id}}"
                                     [checked]="combinedExercise.completed"
-                                    (change)="onCheckboxChange(combinedExercise, $event)" 
-                                    [style.color]="getAccordionsColors()"/>
+                                    (change)="onCheckboxChange(combinedExercise, $event)"
+                                    [style.color]="getAccordionsColors()" />
                                 <label for="exercise-checkbox-{{combinedExercise.id}}" class="checkbox-label">
                                     <span class="checkbox-custom"></span>
                                 </label>

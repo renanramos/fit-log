@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CombinedExercise } from '@domain/combined-exercises.model';
 import { Exercise } from '@domain/exercise.model';
 
@@ -13,13 +13,15 @@ export class ExercisesProgress implements OnInit {
 
   @Input() exercises: Exercise[] = [];
   @Input() combinedExercises: CombinedExercise[] = [];
+  @Input() isActivated: boolean = false;
+
   totalExercises: number = 0;
   totalCompleted = 0;
   percentCompleted = 0;
 
   ngOnInit(): void {}
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(): void {
     this.calculateExercisesPercentual();
   }
 

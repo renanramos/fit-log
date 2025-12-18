@@ -1,17 +1,16 @@
-import { ChangeDetectorRef, Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WeeklyWorkout, WorkoutDay } from '@domain/weekly-workout.model';
 import { Exercise } from '@domain/exercise.model';
 import { CombinedExercise } from '@domain/combined-exercises.model';
 import workout from '@domain/workout.const';
 import { ExercisesProgress } from '@features/shared/exercises-progress/exercises-progress';
-import { interval, Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { ContadorComponent } from '@features/shared/contador/contador.component';
 
 @Component({
     selector: 'app-exercise-item',
     standalone: true,
-    imports: [CommonModule, ExercisesProgress],
+    imports: [CommonModule, ExercisesProgress, ContadorComponent],
     templateUrl: './exercise-item.component.html',
     styleUrls: ['./exercise-item.component.css']
 })
@@ -21,21 +20,15 @@ export class ExerciseItemComponent implements OnInit {
     @Input() accordionId!: string;
     @Input() activeDay: string = 'monday';
     @Input() workoutDay?: WorkoutDay
+    @Output() blockWeekDaysNavigation = new EventEmitter<boolean>();
 
     workoutDays: WorkoutDay[] = [];
     exercises: Exercise[] = this.workoutDay?.exercises || [];
     combinedExercises: CombinedExercise[] = this.workoutDay?.combinedExerciseSets || [];
-    showDetails = false;
-    isCollapsed = true;
-    totalExercises = 0;
-    enableAccordions = false;
-    currentTime = 1;
+    activateExercises = false;
 
     private collapsedState: Map<string | number, boolean> = new Map();
     private collapsedCombinedSets: Set<number> = new Set<number>();
-    private intervalId: any;
-
-    constructor(private cdr: ChangeDetectorRef){}
 
     ngOnInit(): void {
         this.setUpAccordionExercisesList();
@@ -98,24 +91,13 @@ export class ExerciseItemComponent implements OnInit {
         exercise.completed = event.target.checked;
     }
 
-    iniciarTreino() {
-        this.ativarTimer();
-        this.ativarAccordions();
-    }
-
-    ativarTimer() {
-    //    this.intervalId = setInterval(() => {
-    //     this.currentTime++;
-    //     this.cdr.detectChanges();
-    //    }, 1000);
-    }
-
-    ativarAccordions() {
-        this.enableAccordions = !this.enableAccordions
+    ativarAccordions(accordionsState: boolean) {
+        this.activateExercises = accordionsState
+        this.blockWeekDaysNavigation.emit(accordionsState);
     }
 
     getAccordionsColors() {
-        return !this.enableAccordions ? 'var(--color-primary--blocked)' : 'var(--color-primary)';
+        return !this.activateExercises ? 'var(--color-primary--blocked)' : 'var(--color-primary)';
     }
 }
 
