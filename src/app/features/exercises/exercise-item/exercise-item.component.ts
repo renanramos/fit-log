@@ -1,14 +1,17 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WeeklyWorkout, WorkoutDay } from '@domain/weekly-workout.model';
 import { Exercise } from '@domain/exercise.model';
 import { CombinedExercise } from '@domain/combined-exercises.model';
 import workout from '@domain/workout.const';
+import { ExercisesProgress } from '@features/shared/exercises-progress/exercises-progress';
+import { interval, Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
     selector: 'app-exercise-item',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, ExercisesProgress],
     templateUrl: './exercise-item.component.html',
     styleUrls: ['./exercise-item.component.css']
 })
@@ -25,11 +28,14 @@ export class ExerciseItemComponent implements OnInit {
     showDetails = false;
     isCollapsed = true;
     totalExercises = 0;
-    totalCompleted = 0;
-    percentCompleted = 0;
+    enableAccordions = false;
+    currentTime = 1;
 
     private collapsedState: Map<string | number, boolean> = new Map();
     private collapsedCombinedSets: Set<number> = new Set<number>();
+    private intervalId: any;
+
+    constructor(private cdr: ChangeDetectorRef){}
 
     ngOnInit(): void {
         this.setUpAccordionExercisesList();
@@ -41,7 +47,6 @@ export class ExerciseItemComponent implements OnInit {
         if (changes['activeDay'] && !changes['activeDay'].firstChange) {
             this.workoutDays = [];
             this.setUpAccordionExercisesList();
-            this.calculateExercisesPercentual();
         }
     }
 
@@ -68,27 +73,6 @@ export class ExerciseItemComponent implements OnInit {
         }
     }
 
-    calculateTotalExercises(): number {
-        let totalExerciseCount = this.exercises.length;
-        
-        // Contar exercícios dentro de conjuntos combinados
-        this.combinedExercises.forEach(combinedSet => totalExerciseCount += combinedSet.exercises.length);
-        return totalExerciseCount;
-    }
-
-    calculateExercisesPercentual(): void {
-        this.totalExercises = this.calculateTotalExercises();
-
-        const completedIndividualExercises = this.exercises.filter(exercise => exercise.completed).length;
-
-        let completedCombinedExercises = 0;
-        this.combinedExercises.forEach(combinedSet =>
-            completedCombinedExercises += combinedSet.exercises.filter(exercise => exercise.completed).length);
-
-        this.totalCompleted = completedIndividualExercises + completedCombinedExercises;
-        this.percentCompleted = this.totalExercises > 0 ? (this.totalCompleted / this.totalExercises) * 100 : 0;
-    }
-
     toggleCollapse(exerciseId: string | number): void {
         const currentState = this.isExerciseCollapsed(exerciseId);
         this.collapsedState.set(exerciseId, !currentState);
@@ -112,7 +96,26 @@ export class ExerciseItemComponent implements OnInit {
 
     onCheckboxChange(exercise: Exercise, event: any): void {
         exercise.completed = event.target.checked;
-        this.calculateExercisesPercentual();
+    }
+
+    iniciarTreino() {
+        this.ativarTimer();
+        this.ativarAccordions();
+    }
+
+    ativarTimer() {
+    //    this.intervalId = setInterval(() => {
+    //     this.currentTime++;
+    //     this.cdr.detectChanges();
+    //    }, 1000);
+    }
+
+    ativarAccordions() {
+        this.enableAccordions = !this.enableAccordions
+    }
+
+    getAccordionsColors() {
+        return !this.enableAccordions ? 'var(--color-primary--blocked)' : 'var(--color-primary)';
     }
 }
 

@@ -1,8 +1,9 @@
 /* === Variables === */
 :root {
     /* Cores substituídas por tons azulados do Bootstrap */
-    --color-primary: #3EBFA3;      
+    --color-primary: #3EBFA3;
     --color-primary-dark: #2C9D84; 
+    --color-primary--blocked: #929292;
     --color-secondary: #f8f9fa;
     --color-secondary-dark: #e9ecef;
     --color-text: #333333;
