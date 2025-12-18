@@ -10,11 +10,6 @@
   height: 100%;
 }
 
-.exercises_progression {
-  width: auto;
-  margin: 5%;
-}
-
 /* Container principal para organizar conteúdo */
 .exercise-card-container {
   display: flex;
